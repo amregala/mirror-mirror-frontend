@@ -22,9 +22,59 @@
 }
 
 .Main {
-  min-height: 100vh;
-  background-color: #345995;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+
+  /* min-height: 100vh; */
+  background-color: #191a1b;
+  /* text-align: center; */
   font-family: "Bebas Neue", sans-serif;
   color: whitesmoke;
+}
+
+h1 {
+  color: #fdcd00;
+}
+
+.Sidebar {
+  height: 100%;
+  width: 250px;
+  background-color: #191a1b;
+}
+
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.Sidebar .row {
+  width: 100%;
+  height: 60px;
+  /* border: 1px solid black; */
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  /* color: #fdcd00; */
+  color: #d5d5d5;
+  justify-content: center;
+  align-items: center;
+}
+
+.SidebarList .row:hover {
+  cursor: pointer;
+  background-color: #707070;
+}
+.SidebarList #active {
+  background-color: #525151;
+}
+.row #icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+.row #title {
+  flex: 70%;
 }
