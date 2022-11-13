@@ -25,7 +25,6 @@
   width: 100vw;
   height: 100vh;
 
-  /* min-height: 100vh; */
   background-color: #191a1b;
   /* text-align: center; */
   font-family: "Bebas Neue", sans-serif;
@@ -34,6 +33,10 @@
 
 h1 {
   color: #fdcd00;
+  text-align: left;
+  padding-top: 25px;
+  padding-left: 15px;
+  font-size: 55px;
 }
 
 .Sidebar {
@@ -78,3 +81,14 @@ h1 {
 .row #title {
   flex: 70%;
 }
+
+/* .Home {
+  color: red;
+  font-size: 250px;
+  background-color: red;
+  text-align: center;
+  display: flex;
+  height: 99vh;
+  align-items: center;
+  justify-content: center;
+} */
