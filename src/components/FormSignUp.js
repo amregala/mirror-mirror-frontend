@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const BoxContainer = styled.div`
-  margin-left: 180px;
+  ${'' /* margin-left: 180px; */}
   ${'' /* margin-top: 350px; */}
-  width: 280px;
+  width: 250px;
   minheight: 550px;
   display: flex;
   flex-direction: column;
