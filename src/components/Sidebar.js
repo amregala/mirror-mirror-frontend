@@ -15,12 +15,15 @@ const Nav = styled.div`
   justify-content: flex-start;
   align-items: center; */
   }
+  margin-top: -55px;
+
 `;
 
 const NavIcon = styled(Link)`
   ${"" /* margin-top: 25px; */}
   margin-left: 15px;
-  ${'' /* font-size: large; */}
+  ${"" /* margin-top: -35px; */}
+  ${"" /* font-size: large; */}
   ${"" /* display: flex; */}
   ${"" /* justify-content: flex-start; */}
   align-items: center;

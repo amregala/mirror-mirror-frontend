@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import FormSignUp from "./FormSignUp";
 
 const SidebarLink = styled(Link)`
   margin-top: 15px;
@@ -27,8 +28,8 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
-  background: yellow-green;
-  height: 60px;
+ 
+  height: px;
   padding-left: 3rem;
   display: flex;
   align-items: center;
@@ -36,6 +37,13 @@ const DropdownLink = styled(Link)`
   color: #f5f5f5;
   font-size: 18px;
 `;
+
+const SignUp = styled.div `
+${'' /* background: red; */}
+${'' /* height: 100px; */}
+
+`;
+
 
 const SubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
@@ -61,11 +69,24 @@ const SubMenu = ({ item }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index}>
-              {item.icon}
-              <SidebarLabel>{item.title}</SidebarLabel>
+           
+                <FormSignUp></FormSignUp>
+              {/* <SidebarLabel><FormSignUp/></SidebarLabel> */}
+              
+             
+              {/* <SidebarLabel>Where does this go</SidebarLabel> */}
             </DropdownLink>
+            
           );
+
+          {/* <SignUp>
+              <FormSignUp></FormSignUp></SignUp> */}
         })}
+
+
+      
+ 
+
     </>
   );
 };

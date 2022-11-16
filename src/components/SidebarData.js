@@ -33,8 +33,8 @@ export const SidebarData = [
     iconOpen: <ArrowDropUpIcon />,
     subNav: [
       {
-        title: "Sign Up",
-        icon: <PersonAddAlt1Icon />,
+        title: "Sign Up for an Account",
+        // icon: <PersonAddAlt1Icon />,
         path: "/signup",
       },
     ],
@@ -47,8 +47,8 @@ export const SidebarData = [
     iconOpen: <ArrowDropUpIcon />,
     subNav: [
       {
-        title: "Login",
-        icon: <LoginIcon />,
+        title: "Login Below",
+        // icon: <LoginIcon />,
         path: "/login",
       },
     ],
