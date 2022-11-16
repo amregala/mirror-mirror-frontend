@@ -12,9 +12,10 @@
 /* ====================
   Fonts being used in this project are:
   * font-family: 'Bebas Neue', sans-serif;
+  * font-family: 'Poppins', sans-serif;
 ==================== */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;400;600;700&display=swap');
 * {
   padding: 0;
   margin: 0;
