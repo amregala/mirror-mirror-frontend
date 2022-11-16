@@ -1,3 +1,4 @@
+import { ListItemSecondaryAction } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -28,22 +29,22 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
- 
-  ${'' /* height: px; */}
-  ${'' /* padding-left: 3rem; */}
+  ${"" /* height: px; */}
+  ${"" /* padding-left: 3rem; */}
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: 14px;
+  ${"" /* margin-left: 20px; */}
+  ${'' /* padding: 10px; */}
+  font-family: "Poppins", sans-serif;
 `;
 
-const SignUp = styled.div `
-${'' /* background: red; */}
-${'' /* height: 100px; */}
-
+const SignUp = styled.div`
+  ${"" /* background: red; */}
+  ${"" /* height: 100px; */}
 `;
-
 
 const SubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
@@ -69,24 +70,14 @@ const SubMenu = ({ item }) => {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index}>
-           
-                <FormSignUp></FormSignUp>
+              {/* {item.icon} */}
+              {item.formType}
+              {item.details}
+              {/* <FormSignUp></FormSignUp> */}
               {/* <SidebarLabel><FormSignUp/></SidebarLabel> */}
-              
-             
-              {/* <SidebarLabel>Where does this go</SidebarLabel> */}
             </DropdownLink>
-            
           );
-
-          {/* <SignUp>
-              <FormSignUp></FormSignUp></SignUp> */}
         })}
-
-
-      
- 
-
     </>
   );
 };

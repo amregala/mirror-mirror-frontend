@@ -43,6 +43,7 @@ const SidebarNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
+  margin-left: 0px;
   ${"" /* top: -45; */}
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350 ms;

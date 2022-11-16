@@ -32,7 +32,7 @@ const BackDrop = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  border-radius: 5%;
+  border-radius: 65%;
   transform: rotate(40deg);
   top: -290px;
   left: -70px;

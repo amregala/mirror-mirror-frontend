@@ -13,6 +13,9 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
+import LoginForm from "./LoginForm";
+import FormSignUp from "./FormSignUp";
+
 export const SidebarData = [
   // {
   //     title: 'Sign Up',
@@ -36,7 +39,7 @@ export const SidebarData = [
         title: "Sign Up for an Account",
         // icon: <PersonAddAlt1Icon />,
         path: "/signup",
-      },
+        formType: <FormSignUp />      },
     ],
   },
   {
@@ -57,5 +60,15 @@ export const SidebarData = [
     title: "About",
     icon: <InfoIcon />,
     path: "/about",
+    iconClosed: <ArrowDropDownIcon />,
+    iconOpen: <ArrowDropUpIcon />,
+    subNav: [
+      {
+        title: "About Project",
+        // icon: <LoginIcon />,
+        path: "/about",
+        details: "The idea of capturing oneself/essence through visual means has been a long standing practice of people. But before the onslaught of the modern-day selfie and ease/rate at which images can be produced, artists used a variety of mediums and styles in attempts to capture themselves.",
+      },
+    ],
   },
 ];
