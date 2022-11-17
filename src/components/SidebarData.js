@@ -13,36 +13,10 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-import LoginForm from "./LoginForm";
-import FormSignUp from "./FormSignUp";
+import UserSkeletonForm from "./FormBoxes/UserSkeletonForm";
+// import LogininForm from "./FormBoxes/SignUpForm";
 
 export const SidebarData = [
-  // {
-  //     title: 'Sign Up',
-  //     icon: <HowToRegIcon />,
-  //     link: '/signup'
-  // },
-  //   {
-  //     title: "Sign Up",
-  //     icon: <AddCircleIcon />,
-  //     link: "/signup",
-  //   },
-  //   { title: "MIRROR MIRROR"},
-  {
-    title: "SignUp",
-    icon: <PersonAddAlt1Icon />,
-    path: "/signup",
-    iconClosed: <ArrowDropDownIcon />,
-    iconOpen: <ArrowDropUpIcon />,
-    subNav: [
-      {
-        title: "Sign Up for an Account",
-        // icon: <PersonAddAlt1Icon />,
-        path: "/signup",
-        formType: <FormSignUp />,
-      },
-    ],
-  },
   {
     title: "Login",
     icon: <LoginIcon />,
@@ -51,13 +25,29 @@ export const SidebarData = [
     iconOpen: <ArrowDropUpIcon />,
     subNav: [
       {
-        title: "Login Below",
+        // title: "Login Below",
         // icon: <LoginIcon />,
-        path: "/login",
-        // formType: <LoginForm />,
+        // path: "/login",
+        formType: <UserSkeletonForm />,
       },
     ],
   },
+  // {
+  //   title: "SignUp",
+  //   icon: <PersonAddAlt1Icon />,
+  //   path: "/signup",
+  //   iconClosed: <ArrowDropDownIcon />,
+  //   iconOpen: <ArrowDropUpIcon />,
+  //   subNav: [
+  //     {
+  //       title: "Sign Up for an Account",
+        // icon: <PersonAddAlt1Icon />,
+        // path: "/signup",
+        // formType: <FormSignUp />,
+      // },
+    // ],
+  // },
+
   {
     title: "About",
     icon: <InfoIcon />,

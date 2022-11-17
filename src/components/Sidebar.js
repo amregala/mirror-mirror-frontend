@@ -8,13 +8,11 @@ import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 
 const Nav = styled.div`
-  ${
-    "" /* background: #15171c;
+  background: #15171c;
   height: 80px;
   display: flex;
   justify-content: flex-start;
-  align-items: center; */
-  }
+  align-items: center;
   margin-top: -55px;
 
 `;

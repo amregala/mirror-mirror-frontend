@@ -6,7 +6,7 @@ export const BoxContainer = styled.div`
   flex-direction: column;
   align-items: center;
   ${"" /* margin-top: 10px; */}
-  margin-top: -220px;
+  margin-top: -180px;
 `;
 
 export const FormContainer = styled.form`
@@ -18,15 +18,18 @@ export const FormContainer = styled.form`
 export const MutedLink = styled.a`
   font-size: 12px;
   font-family: "Poppins", sans-serif;
-  color: lightgrey;
+  color: whitesmoke;
   text-decoration: none;
   text-align: center;
-  margin-top: 8px;
+  padding: 10px;
+  display: block;
+  margin-top: 15px;
+  ${"" /* margin-top: 10px; */}
 `;
 
 export const BoldLink = styled.a`
   font-size: 12px;
-  color: green;
+  color: #fdcd00;
   font-weight: 600;
   text-decoration: none;
 `;
