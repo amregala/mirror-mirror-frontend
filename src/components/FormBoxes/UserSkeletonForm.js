@@ -10,14 +10,17 @@ const BoxContainer = styled.div`
   ${"" /* margin-left: 180px; */}
   ${"" /* margin-top: 350px; */}
   width: 250px;
-  min-height: 450px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  ${"" /* border-radius: 19px; */}
+ ${'' /* border-radius: 0px 19px 19px 0px;  */}
   background-color: #21242b;
-  box-shadow: 2px 1px 26px 4px rgba(99, 44, 228, 1);
+  ${'' /* box-shadow: 2px 1px 26px 4px rgba(99, 44, 228, 1);  */}
+  ${'' /* box-shadow: 9px 3px 13px -7px rgba(255,255,255,1); */}
+  ${'' /* box-shadow: 10px 3px 21px -3px rgba(249,205,0,1); */}
+  box-shadow: 10px 3px 21px -3px rgba(137,137,137,1);
   position: relative;
-  overflow: hidden;
+   overflow: hidden; 
 `;
 
 const TopContainer = styled.div`
@@ -31,21 +34,34 @@ const TopContainer = styled.div`
 `;
 
 const BackDrop = styled(motion.div)`
-  width: 200%;
-  height: 350px;
+  ${"" /* width: 200%; */}
+  ${
+    "" /* 
+  width: 100%;
+  height: 100%; */
+  }
+  width: 1000px;
+  height: 1000px;
   position: absolute;
   display: flex;
   flex-direction: column;
-  border-radius: 65%;
-  transform: rotate(40deg);
-  top: -290px;
-  left: -70px;
-  background: #632ce4;
+  ${'' /* border-radius: 60% 10% 30% 80%; */}
+  border-radius: 75% 80% 75% 50%;
+  ${"" /* border-radius: 25% 25%; */}
+  ${'' /* transform: rotate(-180deg); */}
+  top: -420px;
+  left: -60px; 
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  ${
+    "" /* background: #632ce4;
   background: linear-gradient(
     58 deg,
     rgba(241, 196, 15, 1) 20%,
     rgba(243, 172, 18, 1) 100%
-  );
+  ); */
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -55,8 +71,8 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  margin-top: -220px;
-  font-size: 30px;
+  margin-top: -180px;
+  font-size: 24px;
   ${"" /* font-weight: 600; */}
   line-height: 1.2;
   color: #fff;
@@ -83,12 +99,12 @@ const backdropVariants = {
     width: "233%",
     height: "1050px",
     borderRadius: "20%",
-    transform: "rotate(60deg)",
+    // transform: "rotate(60deg)",
   },
   collapsed: {
     width: "160%",
     height: "550px",
-    transform: "roate(60deg)",
+    // transform: "roate(60deg)",
   },
 };
 
@@ -130,6 +146,7 @@ const UserSkeletonForm = () => {
         <BoxContainer>
           <TopContainer>
             <BackDrop
+              style={{ backgroundImage: "url(/melt-bw2.jpg)" }}
               initial={false}
               animate={isExpanded ? "expanded" : "collapsed"}
               variants={backdropVariants}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "../App.css";
+
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -8,23 +8,23 @@ import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 
 const Nav = styled.div`
-  background: #15171c;
-  height: 80px;
-  display: flex;
+  ${"" /* background: #15171c; */}
+  ${"" /* height: 80px; */}
+  ${"" /* display: flex; */}
   justify-content: flex-start;
   align-items: center;
   margin-top: -55px;
-
 `;
 
 const NavIcon = styled(Link)`
-  ${"" /* margin-top: 25px; */}
+  margin-top: 25px;
   margin-left: 15px;
   ${"" /* margin-top: -35px; */}
   ${"" /* font-size: large; */}
   ${"" /* display: flex; */}
   ${"" /* justify-content: flex-start; */}
   align-items: center;
+  color: grey;
 
   &:hover {
     ${"" /* background: #252831; */}
@@ -82,27 +82,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-// const Sidebar = () => {
-//   return (
-//     <div className="Sidebar">
-//     <h1>MIRROR MIRROR</h1>
-
-//       <ul className="SidebarList">
-//         {SidebarData.map((item, key) => {
-//           return (
-//             <li key={key}
-//             className="row"
-//             id={window.location.pathname == item.path ? "active" : ""}
-//             onClick={() => (window.location.pathname = item.path)}>
-//               <div id="icon">{item.icon}</div>
-//              <div id="title">{item.title}</div>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default Sidebar;

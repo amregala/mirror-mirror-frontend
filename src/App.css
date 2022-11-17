@@ -15,7 +15,7 @@
   * font-family: 'Poppins', sans-serif;
 ==================== */
 /* @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;400;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -34,11 +34,15 @@
 }
 
 h1 {
-  color: #fdcd00;
+  color: #808080;
   text-align: center;
-  padding-top: 25px;
-  padding-left: 15px;
+  /* padding-top: 25px; */
+  /* padding-left: 15px; */
   font-size: 55px;
+  /* background-color: blue; */
+  background-color: #191a1b;
+  border-bottom: solid 1px #808080;
+  /* padding: 15px; */
 }
 
 .Sidebar {
@@ -74,23 +78,3 @@ h1 {
 .SidebarList #active {
   background-color: #525151;
 }
-.row #icon {
-  flex: 30%;
-  display: grid;
-  place-items: center;
-}
-
-.row #title {
-  flex: 70%;
-}
-
-/* .Home {
-  color: red;
-  font-size: 250px;
-  background-color: red;
-  text-align: center;
-  display: flex;
-  height: 99vh;
-  align-items: center;
-  justify-content: center;
-} */
