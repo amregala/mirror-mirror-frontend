@@ -27,7 +27,7 @@ export const SidebarData = [
   //     icon: <AddCircleIcon />,
   //     link: "/signup",
   //   },
-//   { title: "MIRROR MIRROR"},
+  //   { title: "MIRROR MIRROR"},
   {
     title: "SignUp",
     icon: <PersonAddAlt1Icon />,
@@ -39,7 +39,8 @@ export const SidebarData = [
         title: "Sign Up for an Account",
         // icon: <PersonAddAlt1Icon />,
         path: "/signup",
-        formType: <FormSignUp />      },
+        formType: <FormSignUp />,
+      },
     ],
   },
   {
@@ -53,6 +54,7 @@ export const SidebarData = [
         title: "Login Below",
         // icon: <LoginIcon />,
         path: "/login",
+        // formType: <LoginForm />,
       },
     ],
   },
@@ -67,7 +69,8 @@ export const SidebarData = [
         title: "About Project",
         // icon: <LoginIcon />,
         path: "/about",
-        details: "The idea of capturing oneself/essence through visual means has been a long standing practice of people. But before the onslaught of the modern-day selfie and ease/rate at which images can be produced, artists used a variety of mediums and styles in attempts to capture themselves.",
+        details:
+          "The idea of capturing oneself/essence through visual means has been a long standing practice of people. But before the onslaught of the modern-day selfie and ease/rate at which images can be produced, artists used a variety of mediums and styles in attempts to capture themselves.",
       },
     ],
   },
