@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
-import CancelIcon from "@mui/icons-material/Cancel";
+
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";

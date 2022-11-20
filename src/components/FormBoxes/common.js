@@ -1,18 +1,46 @@
 import styled from "styled-components";
 
-export const BoxContainer = styled.div`
+export const BoxContainerLogin = styled.div`
   width: 100%;
   dispay: flex;
   flex-direction: column;
   align-items: center;
-  ${"" /* margin-top: 10px; */}
-  margin-top: -180px;
+  margin-top: 185px; 
+  ${'' /* margin-top: -180px; */}
 `;
+
+export const BoxContainerSignUp = styled.div`
+  width: 100%;
+  dispay: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 185px; 
+  ${'' /* margin-top: -180px; */}
+`;
+
 
 export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+`;
+
+
+export const HeaderText = styled.h2`
+  margin-top: -180px;
+  font-size: 24px;
+  ${"" /* font-weight: 600; */}
+  line-height: 1.2;
+  color: #fff;
+  z-index: 10;
+`;
+
+export const SmallText = styled.h5`
+  font-family: "Poppins";
+  font-weight: 200;
+  color: #fff;
+  font-size: 14px;
+  z-index: 10;
 `;
 
 export const MutedLink = styled.a`

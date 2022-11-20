@@ -1,33 +1,41 @@
 import React, { useContext } from "react";
-import { FormContext } from "./FormContext";
+// import { FormContext } from "./FormContext";
 import {
-  BoxContainer,
+  // BoxContainer,
+  BoxContainerLogin,
   FormContainer,
+  HeaderText,
+  SmallText,
   Input,
   MutedLink,
   SubmitButton,
   BoldLink,
+  
 } from "./common";
 
 const LoginForm = props => {
-  const { switchToSignupForm } = useContext(FormContext);
+  // const { switchToSignupForm } = useContext(FormContext);
 
   return (
-    <BoxContainer>
+    <BoxContainerLogin>
+    <HeaderText>Welcome</HeaderText>
+    <SmallText>Please sign in to continue</SmallText>
+    
       <FormContainer>
         <Input type="text" placeholder="Username" />
         <Input type="password" placeholder="Password" />
+        <SubmitButton type="submit">Signin</SubmitButton>
       </FormContainer>
 
       {/* <MutedLink href="#">Forgot your password?</MutedLink> */}
-      <SubmitButton type="submit">Signin</SubmitButton>
-      <MutedLink href="#">
+
+      {/* <MutedLink href="#">
         Don't have an account?
         <BoldLink href="#" onClick={switchToSignupForm}>
           Signup
         </BoldLink>
-      </MutedLink>
-    </BoxContainer>
+      </MutedLink> */}
+    </BoxContainerLogin>
   );
 };
 
