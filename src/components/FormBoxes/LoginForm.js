@@ -26,13 +26,29 @@ const LoginForm = props => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = e => {
-    const url = baseURL + "/users/login";
-
+  const Login = e => {
     e.preventDefault();
-    console.log(username);
-    console.log(url);
+    const url = baseURL + "/users/login";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+      .then(res => res.json())
+      .then(resJson => {
+        console.log(resJson);
+        console.log(username);
+        console.log(url);
+      });
+    setUsername("");
+    setPassword("");
   };
+  
 
   return (
     <BoxContainerLogin>
@@ -45,16 +61,18 @@ const LoginForm = props => {
           placeholder="username"
           id="username"
           value={username}
+          onChange={e => setUsername(e.target.value)}
         />
 
         <Input
           type="password"
           placeholder="password"
           id="password"
-          value={username}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <SubmitButton type="submit" onClick={handleLogin}>
+        <SubmitButton type="submit" onClick={Login}>
           Signin
         </SubmitButton>
       </FormContainer>

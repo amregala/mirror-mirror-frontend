@@ -68,7 +68,7 @@ const SignupForm = props => {
       <HeaderText>Create Account</HeaderText>
       <SmallText>Register to continue</SmallText>
 
-      <FormContainer id="signup-form">
+      <FormContainer>
         <Input
           type="text"
           placeholder="username"
