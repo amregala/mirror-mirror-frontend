@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import { FormContext } from "./FormContext";
 import {
   // BoxContainer,
@@ -7,24 +7,56 @@ import {
   HeaderText,
   SmallText,
   Input,
-  MutedLink,
   SubmitButton,
+  MutedLink,
   BoldLink,
-  
 } from "./common";
+
+let baseURL = "http://localhost:3001";
+// if (process.env.NODE_ENV === "development") {
+//   baseURL = "http://localhost:3001";
+// }
+// else {
+//   baseURL = "HEROKU DEPLOYMENT LINK";
+// }
 
 const LoginForm = props => {
   // const { switchToSignupForm } = useContext(FormContext);
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = e => {
+    const url = baseURL + "/users/login";
+
+    e.preventDefault();
+    console.log(username);
+    console.log(url);
+  };
+
   return (
     <BoxContainerLogin>
-    <HeaderText>Welcome</HeaderText>
-    <SmallText>Please sign in to continue</SmallText>
-    
+      <HeaderText>Welcome</HeaderText>
+      <SmallText>Please sign in to continue</SmallText>
+
       <FormContainer>
-        <Input type="text" placeholder="Username" />
-        <Input type="password" placeholder="Password" />
-        <SubmitButton type="submit">Signin</SubmitButton>
+        <Input
+          type="text"
+          placeholder="username"
+          id="username"
+          value={username}
+        />
+
+        <Input
+          type="password"
+          placeholder="password"
+          id="password"
+          value={username}
+        />
+
+        <SubmitButton type="submit" onClick={handleLogin}>
+          Signin
+        </SubmitButton>
       </FormContainer>
 
       {/* <MutedLink href="#">Forgot your password?</MutedLink> */}

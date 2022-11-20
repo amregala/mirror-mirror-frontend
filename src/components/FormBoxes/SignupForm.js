@@ -6,8 +6,8 @@ import {
   HeaderText,
   SmallText,
   Input,
-  MutedLink,
   SubmitButton,
+  MutedLink,
   BoldLink,
 } from "./common";
 
@@ -27,12 +27,6 @@ const SignupForm = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-
-  //   console.log(email);
-  // };
 
   const register = e => {
     e.preventDefault();
@@ -55,6 +49,9 @@ const SignupForm = props => {
         // console.log("thisworked")
         // CALL GET SELFIES HERE TO GET ALL THE SELFIES AND REFRESH THE PAGE
       });
+    setEmail("");
+    setPassword("");
+    setUsername("");
   };
 
   // const test = () => {
@@ -71,7 +68,7 @@ const SignupForm = props => {
       <HeaderText>Create Account</HeaderText>
       <SmallText>Register to continue</SmallText>
 
-      <FormContainer>
+      <FormContainer id="signup-form">
         <Input
           type="text"
           placeholder="username"
