@@ -1,9 +1,9 @@
-import Info from "@mui/icons-material/Info";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import FormSignUp from "./FormBoxes/UserSkeletonForm";
+import { SidebarData } from "./SidebarData";
 
+// ? ==== STYLED COMPONENTS ====//
 const SidebarLink = styled(Link)`
   margin-top: 15px;
   display: flex;
@@ -45,22 +45,20 @@ const DropdownLink = styled(Link)`
   font-family: "Poppins", sans-serif;
 `;
 
-const SignUp = styled.div`
-  ${"" /* background: red; */}
-  ${"" /* height: 100px; */}
-`;
-
+// ! ==== ACTUAL COMPONENT ====//
 const SubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
 
   return (
     <>
-      <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
+      <SidebarLink id={window.location.pathname == item.path ? "active" : ""} onClick={item.subNav && showSubnav}>
         <div>
           {item.icon}
+
           <SidebarLabel>{item.title}</SidebarLabel>
         </div>
+
         <div>
           {item.subnav && subnav
             ? item.iconOpened
@@ -71,15 +69,11 @@ const SubMenu = ({ item }) => {
       </SidebarLink>
 
       {subnav &&
-        item.subNav.map((item, index) => {
+        item.subNav.map((item, key) => {
           return (
-            <DropdownLink to={item.path} key={index}>
-              {/* {item.icon} */}
+            <DropdownLink key={key} path={item.path}>
               {item.formType}
               {item.details}
-            
-              {/* <FormSignUp></FormSignUp> */}
-              {/* <SidebarLabel><FormSignUp/></SidebarLabel> */}
             </DropdownLink>
           );
         })}
@@ -88,3 +82,29 @@ const SubMenu = ({ item }) => {
 };
 
 export default SubMenu;
+
+
+
+// const SubMenu = () => {
+//   return (
+//     <div className="Sidebar">
+//    {/* <h1>MIRROR MIRROR</h1> */}
+    
+//          <ul className="SidebarList">
+//              {SidebarData.map((item, key) => {
+//              return (
+//                 <li key={key}
+//                className="row"
+//                id={window.location.pathname == item.path ? "active" : ""}
+//                 onClick={() => (window.location.pathname = item.path)}>
+//                  <div id="icon">{item.icon}</div>
+//                  <div id="title">{item.title}</div>
+//                </li>
+//              );
+//            })}
+//          </ul>
+//          </div>
+//   )
+// }
+
+// export default SubMenu

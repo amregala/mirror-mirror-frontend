@@ -1,29 +1,27 @@
 import React from "react";
 
 // ==== ICONS FROM MATERIAL UI ====//
-import HowToRegIcon from "@mui/icons-material/HowToReg";
 import LoginIcon from "@mui/icons-material/Login";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-// ==== SPECIFIC FORMS THAT DROP DOWN  ====//
-// import UserSkeletonForm from "./FormBoxes/UserSkeletonForm";
+// ==== SPECIFIC FORMS THAT DISPLAY ON LANDING NAV
 import LoginForm from "./FormBoxes/LoginForm";
 import SignupForm from "./FormBoxes/SignupForm";
 
 export const SidebarData = [
   {
     title: "Login",
-    icon: <LoginIcon />,
     // path: "/login",
+    icon: <LoginIcon />,
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
+    cName: 'nav-text',
     subNav: [
       {
-        // title: "Login to continue",
+        // path: "/login",
         formType: <LoginForm />,
       },
     ],
@@ -34,9 +32,10 @@ export const SidebarData = [
     // path: "/signup",
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
+    cName: 'nav-text',
     subNav: [
       {
-        // title: "Sign Up for an Account",
+        // path: "/signup",
         formType: <SignupForm />,
       },
     ],
@@ -48,9 +47,11 @@ export const SidebarData = [
     // path: "/about",
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
+    cName: 'nav-text',
     subNav: [
       {
         // title: "About Project",
+        // path: "/about",
         details:
           "The idea of capturing oneself/essence through visual means has been a long standing practice of people. But before the onslaught of the modern-day selfie and ease/rate at which images can be produced, artists used a variety of mediums and styles in attempts to capture themselves.",
       },

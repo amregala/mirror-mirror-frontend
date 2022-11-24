@@ -1,30 +1,32 @@
 import React from "react";
-import "./App.css";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
 
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import SignupForm from "./components/FormBoxes/SignupForm";
+//? ==== IMPORTED COMPONENTS ====//
+import Layout from "./components/Layout";
 import TestContainer from "./components/TestContainer";
-// import Overview from "./pages/Overview.js";
+import PublicLanding from "./pages/PublicLanding";
+import LoginForm from "./components/FormBoxes/LoginForm";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
     <div className="Main">
-      <Header />
-      <Sidebar />
-      {/* <Routes> */}
-        {/* <Route path="/" element={<Sidebar />}/> */}
-        {/* <Route path="users/signup" element={<SignupForm sign/>} /> */}
-          {/* <Sidebar /> */}
-      {/* </Routes> */}
+      <Routes>
+        {/* <Route path="/" element={<Layout />}> */}
+
+        {/***** public routes *****/}
+        <Route path="/" element={<PublicLanding />} />
+        {/* <Route path="login" element={<LoginForm />} /> */}
+        {/* <Route path="login" element={<LoginForm />}></Route> */}
+      </Routes>
+
+      <Routes>
+        {/***** private routes (protected routes) *****/}
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
 
       {/* <TestContainer /> */}
-      {/* <Routes>
-          <Route path="/Overview" exact component={Overview} />
-        </Routes> */}
     </div>
   );
 };

@@ -1,5 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 // import { FormContext } from "./FormContext";
+
+import config from "/Users/a.regalado/sei-cosmos/projects/project4/mirror-mirror-frontend/src/api/config";
+
 import {
   BoxContainerSignUp,
   FormContainer,
@@ -13,6 +16,7 @@ import {
 
 let baseURL = "http://localhost:3001";
 
+const test = config.apiBaseURL;
 // if (process.env.NODE_ENV === "development") {
 //   baseURL = "http://localhost:3001";
 // }
@@ -21,12 +25,15 @@ let baseURL = "http://localhost:3001";
 // }
 
 console.log("current baseURL:", baseURL);
+console.log("Congif URL:", test);
 
 const SignupForm = props => {
   // const { switchToLoginForm } = useContext(FormContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const register = e => {
     e.preventDefault();
@@ -44,14 +51,17 @@ const SignupForm = props => {
     })
       .then(res => res.json())
       .then(resJson => {
+        setSuccess(true);
         console.log(resJson);
+        console.log("in res response:", success);
         // console.log(email, password);
-        // console.log("thisworked")
         // CALL GET SELFIES HERE TO GET ALL THE SELFIES AND REFRESH THE PAGE
       });
+
     setEmail("");
     setPassword("");
     setUsername("");
+    console.log("after response", success);
   };
 
   // const test = () => {
@@ -72,16 +82,19 @@ const SignupForm = props => {
         <Input
           type="text"
           placeholder="username"
+          autoComplete="off"
           id="username"
+          // ref={userRef}
           value={username}
           onChange={e => setUsername(e.target.value)}
-          // value={username}
         />
 
         <Input
           type="password"
           placeholder="password"
+          autoComplete="off"
           id="password"
+          // ref={userRef}
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
@@ -89,6 +102,7 @@ const SignupForm = props => {
         <Input
           type="email"
           placeholder="email"
+          autoComplete="off"
           id="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
