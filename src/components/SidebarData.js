@@ -8,20 +8,18 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 // ==== SPECIFIC FORMS THAT DISPLAY ON LANDING NAV
-import LoginForm from "./FormBoxes/LoginForm";
-import SignupForm from "./FormBoxes/SignupForm";
+import LoginForm from "./forms/LoginForm";
+import SignupForm from "./forms/SignupForm";
 
 export const SidebarData = [
   {
     title: "Login",
-    // path: "/login",
     icon: <LoginIcon />,
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
-    cName: 'nav-text',
+    cName: "nav-text",
     subNav: [
       {
-        // path: "/login",
         formType: <LoginForm />,
       },
     ],
@@ -29,13 +27,12 @@ export const SidebarData = [
   {
     title: "SignUp",
     icon: <PersonAddAlt1Icon />,
-    // path: "/signup",
+
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
-    cName: 'nav-text',
+    cName: "nav-text",
     subNav: [
       {
-        // path: "/signup",
         formType: <SignupForm />,
       },
     ],
@@ -44,14 +41,11 @@ export const SidebarData = [
   {
     title: "About",
     icon: <InfoIcon />,
-    // path: "/about",
     iconClosed: <ArrowDropDownIcon />,
     iconOpen: <ArrowDropUpIcon />,
-    cName: 'nav-text',
+    cName: "nav-text",
     subNav: [
       {
-        // title: "About Project",
-        // path: "/about",
         details:
           "The idea of capturing oneself/essence through visual means has been a long standing practice of people. But before the onslaught of the modern-day selfie and ease/rate at which images can be produced, artists used a variety of mediums and styles in attempts to capture themselves.",
       },

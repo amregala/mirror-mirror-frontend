@@ -1,22 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-let baseURL = "http://localhost:3001";
+// import React from "react";
+// import styled from "styled-components";
+// import { Link, useNavigate } from "react-router-dom";
+// let baseURL = "http://localhost:3001";
 
-// ?==== STYLED COMPONENTS ====//
-const NavLi = styled.ul`
-  fontsize: 50px;
-  color: white;
-  text-decoration: none;
-`;
+// // ?==== STYLED COMPONENTS ====//
+// const NavLi = styled.ul`
+//   fontsize: 50px;
+//   color: white;
+//   text-decoration: none;
+// `;
 
 // !  ==== ACTUAL COMPONENT ====//
-const UserNav = () => {
+// const UserNav = () => {
   //   const auth = localStorage.getItem("user");
   //   const auth = fetch(baseURL + "/users/_id", {
   //     credientials: "include",
   //   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   //   const logout = () => {
   //     // localStorage.clear();
   //     fetch(baseURL + "/users/logout")
@@ -30,31 +30,19 @@ const UserNav = () => {
   //     console.log(username)
   //   }
 
-  return (
-    <nav>
-      {/* {auth ? ( */}
-      <NavLi>
-        <li>
-          <Link to="/profile">USER PROFILE</Link>
-        </li>
-        <li>
-          <Link to="/addselfie">Add New Selfie</Link>
-        </li>
-        <li>
-          {/* <Link onClick={logout} to="/">
-              Logout
-            </Link> */}
-        </li>
-      </NavLi>
-      {/* ) : (
-        <ul>
-          <li>
-            <Link to="/"></Link>
-          </li> */}
-      {/* </ul> */}
-      {/* )} */}
-    </nav>
-  );
-};
+  // return (
+//     <nav>
+//       <NavLi>
+//         <li>
+//           <Link to="/profile">USER PROFILE</Link>
+//         </li>
+//         <li>
+//           <Link to="/addselfie">Add New Selfie</Link>
+//         </li>
+//         <li></li>
+//       </NavLi>
+//     </nav>
+//   );
+// };
 
-export default UserNav;
+// export default UserNav;

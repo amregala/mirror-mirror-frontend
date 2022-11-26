@@ -1,11 +1,7 @@
-// import { useAnimationFrame } from "framer-motion";
-import { useContext, useRef, useEffect, useState } from "react";
-import useAuth from "/Users/a.regalado/sei-cosmos/projects/project4/mirror-mirror-frontend/src/hooks/useAuth";
-// import Nav from "../Nav";
+import { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
-// import { FormContext } from "./FormContext";
-import Header from "../Header";
+// import { Link, useNavigate } from "react-router-dom";
+
 import {
   // BoxContainer,
   BoxContainerLogin,
@@ -14,8 +10,6 @@ import {
   SmallText,
   Input,
   SubmitButton,
-  MutedLink,
-  BoldLink,
 } from "./common";
 
 let baseURL = "http://localhost:3001";
@@ -27,12 +21,6 @@ let baseURL = "http://localhost:3001";
 // }
 
 const LoginForm = props => {
-  // const { switchToSignupForm } = useContext(FormContext);
-  // const { setAuth } = useContext(AuthContext);
-  // const { setAuth } = useAuth();
-  // const userRef = useRef();
-  // const errRef = useRef();
-
   const [user, setUser] = useState("");
   // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -40,15 +28,7 @@ const LoginForm = props => {
   // THERORETICALLY WE WOULD REPLACE SUCCESS WITH ACTION FROM REACT ROUTER
   const [success, setSuccess] = useState(false);
 
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
-
-  // useEffect(() => {
-  //   setErrMsg("");
-  // }, [user, password]);
+  // const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -85,7 +65,7 @@ const LoginForm = props => {
       if (res.status === 200) {
         return res.json();
       } else {
-        return []
+        return [];
       }
     });
   };
@@ -102,7 +82,6 @@ const LoginForm = props => {
             placeholder="username"
             id="username"
             autoComplete="off"
-            // ref={userRef}
             // value={username}
             // onChange={e => setUsername(e.target.value)}
             value={user}
@@ -123,15 +102,6 @@ const LoginForm = props => {
             Signin
           </SubmitButton>
         </FormContainer>
-
-        {/* <MutedLink href="#">Forgot your password?</MutedLink> */}
-
-        {/* <MutedLink href="#">
-        Don't have an account?
-        <BoldLink href="#" onClick={switchToSignupForm}>
-          Signup
-        </BoldLink>
-      </MutedLink> */}
       </BoxContainerLogin>
     </>
   );

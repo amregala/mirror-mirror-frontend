@@ -1,5 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from "react";
-// import { FormContext } from "./FormContext";
+import React, { useState } from "react";
 
 import config from "/Users/a.regalado/sei-cosmos/projects/project4/mirror-mirror-frontend/src/api/config";
 
@@ -10,8 +9,6 @@ import {
   SmallText,
   Input,
   SubmitButton,
-  MutedLink,
-  BoldLink,
 } from "./common";
 
 let baseURL = "http://localhost:3001";
@@ -28,7 +25,6 @@ console.log("current baseURL:", baseURL);
 console.log("Congif URL:", test);
 
 const SignupForm = props => {
-  // const { switchToLoginForm } = useContext(FormContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,7 +51,7 @@ const SignupForm = props => {
         console.log(resJson);
         console.log("in res response:", success);
         // console.log(email, password);
-        // CALL GET SELFIES HERE TO GET ALL THE SELFIES AND REFRESH THE PAGE
+        // CALL USER PROFILE PAGE HERE 
       });
 
     setEmail("");
@@ -63,10 +59,6 @@ const SignupForm = props => {
     setUsername("");
     console.log("after response", success);
   };
-
-  // const test = () => {
-  //   console.log("Test");
-  // };
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -112,13 +104,6 @@ const SignupForm = props => {
           Signup
         </SubmitButton>
       </FormContainer>
-
-      {/* <MutedLink href="#">
-        Already have an account?
-        <BoldLink href="#" onClick={switchToLoginForm}>
-          Login
-        </BoldLink>
-      </MutedLink> */}
     </BoxContainerSignUp>
   );
 };
