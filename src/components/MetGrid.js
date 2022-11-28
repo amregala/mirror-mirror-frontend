@@ -1,3 +1,5 @@
+import "../styles/MetGrid.css"
+
 import useFetchMet from "../hooks/useFetchMet";
 
 function MetGrid(url) {

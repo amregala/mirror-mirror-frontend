@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import config from "/Users/a.regalado/sei-cosmos/projects/project4/mirror-mirror-frontend/src/api/config";
+import config from "../../api/axios";
+
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   BoxContainerSignUp,
@@ -13,7 +15,7 @@ import {
 
 let baseURL = "http://localhost:3001";
 
-const test = config.apiBaseURL;
+// const test = config.apiBaseURL;
 // if (process.env.NODE_ENV === "development") {
 //   baseURL = "http://localhost:3001";
 // }
@@ -22,14 +24,14 @@ const test = config.apiBaseURL;
 // }
 
 console.log("current baseURL:", baseURL);
-console.log("Congif URL:", test);
 
 const SignupForm = props => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
 
   const register = e => {
     e.preventDefault();
@@ -51,13 +53,14 @@ const SignupForm = props => {
         console.log(resJson);
         console.log("in res response:", success);
         // console.log(email, password);
-        // CALL USER PROFILE PAGE HERE 
+        // CALL USER PROFILE PAGE HERE
       });
 
     setEmail("");
     setPassword("");
     setUsername("");
-    console.log("after response", success);
+    navigate("/profile");
+
   };
 
   // const handleSubmit = async (e) => {

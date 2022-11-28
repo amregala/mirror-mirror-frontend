@@ -5,8 +5,8 @@ export const BoxContainerLogin = styled.div`
   dispay: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 185px; 
-  ${'' /* margin-top: -180px; */}
+  margin-top: 185px;
+  ${"" /* margin-top: -180px; */}
 `;
 
 export const BoxContainerSignUp = styled.div`
@@ -14,17 +14,15 @@ export const BoxContainerSignUp = styled.div`
   dispay: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 185px; 
-  ${'' /* margin-top: -180px; */}
+  margin-top: 185px;
+  ${"" /* margin-top: -180px; */}
 `;
-
 
 export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
-
 
 export const HeaderText = styled.h2`
   margin-top: -180px;
@@ -68,11 +66,13 @@ export const Input = styled.input`
   outline: none;
   border: 2px solid #21242b;
   padding: 0px 10px;
-  border-bottom: 1.4 solid transparent;
-  transitionL all 200ms ease-in-out;
+  border-bottom: 2 solid transparent;
+  transition: all 200ms ease-in-out;
+  background: #d7d7d7;
 
   &::placeholder {
-    color: rgba (200, 200, 200, 1);
+    ${"" /* color: rgba (200, 200, 200, 1); */}
+    color: black
   }
 
   &:not(:last-of-type) {

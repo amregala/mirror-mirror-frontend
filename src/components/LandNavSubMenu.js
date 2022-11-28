@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SidebarData } from "./SidebarData";
+import { SidebarData } from "./data/SidebarData";
 
 // ? ==== STYLED COMPONENTS ====//
 const SidebarLink = styled(Link)`
@@ -17,7 +17,7 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   border: solid 1px white;
-  ${'' /* background: white; */}
+  ${"" /* background: white; */}
 
   &:hover {
     opacity: 0.8;

@@ -19,9 +19,7 @@ const App = () => {
         <Route path="/" element={<PublicLanding />} />
         {/* <Route path="login" element={<LoginForm />} /> */}
         {/* <Route path="login" element={<LoginForm />}></Route> */}
-    
 
-  
         {/***** private routes (protected routes) *****/}
         <Route path="/profile" element={<Profile />} />
       </Routes>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   // BoxContainer,
@@ -24,11 +24,11 @@ const LoginForm = props => {
   const [user, setUser] = useState("");
   // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
+  // const [errMsg, setErrMsg] = useState("");
   // THERORETICALLY WE WOULD REPLACE SUCCESS WITH ACTION FROM REACT ROUTER
   const [success, setSuccess] = useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
@@ -55,7 +55,7 @@ const LoginForm = props => {
     setUser("");
     setPassword("");
     // console.log(success);
-    // navigate("/profile");
+    navigate("/profile");
   };
 
   const getSelfies = () => {

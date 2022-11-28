@@ -1,0 +1,70 @@
+.CardWrapper {
+    max-width: 1200px;
+    /* width: 400px; */
+    margin: 25px;
+    display: flex;
+    grid-template-columns: auto auto auto;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .Card {
+    width: 200px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 15px;
+    margin: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    /* background-color: yellowgreen; */
+    /* box-shadow: 0 0 1rem rgba(254, 253, 253, 0.5); */
+  }
+  .Card-title {
+    text-align: center;
+  }
+  
+  .Card-Overlay {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    color: black;
+    background-color: white;
+  }
+  
+  .Card-Overlay h3 {
+    margin-top: 15px;
+    font-size: 38px;
+    line-height: 0.8;
+  }
+  
+  .Card:hover .Card-Overlay {
+    opacity: 0.5;
+  }
+  
+  .Card-Artist {
+    text-align: center;
+  }
+  .Card-Origin {
+    text-align: center;
+  }
+  .Card_Img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .SinglePost {
+    padding-top: 25px;
+    width: 400px;
+    height: 400px;
+    background-color: grey;
+  }
+  
