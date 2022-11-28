@@ -1,8 +1,7 @@
-import "../styles/MetGrid.css"
-
+import "../styles/MetGrid.css";
 import useFetchMet from "../hooks/useFetchMet";
 
-function MetGrid(url) {
+function MetGrid() {
   // if you want to change the name of the variable data you can by writing it in the curly braces like: data: artwork then refer to data in the return to artwork versus data
   const { data, loading, error } = useFetchMet();
 
@@ -10,7 +9,7 @@ function MetGrid(url) {
   if (loading) return <h4>Loading...</h4>;
 
   // if (error) console.log(error);
-  console.log("inside comp", data);
+  console.log("inside component MetGrid:", data);
   return (
     <div className="CardGrid">
       {/* <h3>Below are the Met Object Ids:</h3> */}

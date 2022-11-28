@@ -1,7 +1,7 @@
 // import React from "react";
 // import { useNavigate } from "react-router-dom";
 
-import Nav from "../components/UserNav";
+// import Nav from "../components/UserNav";
 
 // let baseURL = "http://localhost:3001";
 
@@ -38,20 +38,17 @@ import Nav from "../components/UserNav";
 
 // export default Profile;
 
-
-import Header from "../components/Header"
+import Header from "../components/Header";
+import MetGrid from "../components/MetGrid";
 import ProfileNav from "../components/ProfileNav";
 
 const Profile = () => {
   return (
-    <>
-  <div>
-     <Header />
+    <div>
+      <Header />
+      <ProfileNav />
+      <MetGrid />
     </div>
-    <ProfileNav />
-    </>
-  
-    
   );
 };
 

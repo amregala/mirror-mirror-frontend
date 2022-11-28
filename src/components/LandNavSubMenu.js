@@ -1,7 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { SidebarData } from "./data/SidebarData";
+// import { SidebarData } from "./data/SidebarData";
+
+const LandNavSubMenu = ({ item }) => {
+  const [subnav, setSubnav] = useState(false);
+  const showSubnav = () => setSubnav(!subnav);
+
+  return (
+    <>
+      <SidebarLink onClick={item.subNav && showSubnav}>
+        <div>
+          {item.icon}
+
+          <SidebarLabel>{item.title}</SidebarLabel>
+        </div>
+
+        <div>
+          {item.subnav && subnav
+            ? item.iconOpened
+            : item.subNav
+            ? item.iconClosed
+            : null}
+        </div>
+      </SidebarLink>
+
+      {subnav &&
+        item.subNav.map((item, key) => {
+          return (
+            <DropdownLink key={key}>
+              {item.formType}
+              {item.details}
+            </DropdownLink>
+          );
+        })}
+    </>
+  );
+};
+
+export default LandNavSubMenu;
 
 // ? ==== STYLED COMPONENTS ====//
 const SidebarLink = styled(Link)`
@@ -42,41 +79,3 @@ const DropdownLink = styled(Link)`
   padding: 10px;
   font-family: "Poppins", sans-serif;
 `;
-
-// ! ==== ACTUAL COMPONENT ====//
-const LandNavSubMenu = ({ item }) => {
-  const [subnav, setSubnav] = useState(false);
-  const showSubnav = () => setSubnav(!subnav);
-
-  return (
-    <>
-      <SidebarLink onClick={item.subNav && showSubnav}>
-        <div>
-          {item.icon}
-
-          <SidebarLabel>{item.title}</SidebarLabel>
-        </div>
-
-        <div>
-          {item.subnav && subnav
-            ? item.iconOpened
-            : item.subNav
-            ? item.iconClosed
-            : null}
-        </div>
-      </SidebarLink>
-
-      {subnav &&
-        item.subNav.map((item, key) => {
-          return (
-            <DropdownLink key={key}>
-              {item.formType}
-              {item.details}
-            </DropdownLink>
-          );
-        })}
-    </>
-  );
-};
-
-export default LandNavSubMenu;
