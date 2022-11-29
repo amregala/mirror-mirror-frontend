@@ -1,27 +1,32 @@
-import React from "react";
 import "./styles/App.css";
-import { Routes, Route } from "react-router-dom";
 
-//? ==== IMPORTED COMPONENTS ====//
-// import Layout from "./components/Layout";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
+import Layout from "./components/Layout";
+import Header from "./components/Header";
+import NotFound from "./pages/NotFound";
+import Unauthorized from "./components/Unauthorized";
+import RequireAuth from "./components/RequireAuth";
 import PublicLanding from "./pages/PublicLanding";
-
 import Profile from "./pages/Profile";
 
 const App = () => {
   return (
     <div className="Main">
+      <Header />
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
+        <Route path="/" element={<Layout />}>
+          {/***** public routes *****/}
+          <Route path="/" element={<PublicLanding />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="*" element={<NotFound />} />
 
-        {/***** public routes *****/}
-        <Route path="/" element={<PublicLanding />} />
-        {/* <Route path="login" element={<LoginForm />} /> */}
-        {/* <Route path="login" element={<LoginForm />}></Route> */}
-
-        {/***** private routes (protected routes) *****/}
-        <Route path="/profile" element={<Profile />} />
+          {/***** private routes (protected routes) *****/}
+          <Route element={<RequireAuth />}>
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+        </Route>
       </Routes>
     </div>
   );

@@ -1,7 +1,11 @@
-import "/Users/a.regalado/sei-cosmos/projects/project4/mirror-mirror-frontend/src/styles/ProfileNav.css";
-
 import "../styles/ProfileNav.css";
+import React, { useState, useEffect, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
+import { useNavigate, Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth"
+import useLogout from "../hooks/useLogout";
 
+// Icons from Material UI
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
@@ -10,16 +14,49 @@ import EditIcon from "@mui/icons-material/Edit";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-import React, { useState, useEffect, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
-
 const ProfileNav = () => {
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  
+  
+  const logout = useLogout();
+  // console.log(user)
+
+  // console.log (setAuth({}))
+
+  const signOut = async () => {
+    await logout();
+    navigate("/");
+  };
+
+  // let baseURL = "http://localhost3001";
+
+  // const handleLogout = e => {
+  //   e.preventDefault();
+  //   const url = baseURL + "/users/logout";
+   
+  //   // const user = { username, password };
+  //   fetch(url, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     credentials: "include",
+  //   })
+  //     .then(res => res.json())
+  //     .then(resJson => {
+  //       console.log(resJson);
+  //       console.log(url);
+  //     });
+  //   navigate("/");
+  // };
+
   return (
     <Navbar>
       <NavItem icon={<ArrowDropDownIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
-      <NavItem icon={<LogoutIcon />}>Logout</NavItem>
+      <NavItem icon={<LogoutIcon onClick={signOut} />}></NavItem>
     </Navbar>
   );
 };

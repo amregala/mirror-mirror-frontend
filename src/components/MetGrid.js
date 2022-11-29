@@ -1,18 +1,19 @@
+import styled from "styled-components";
 import "../styles/MetGrid.css";
-import useFetchMet from "../hooks/useFetchMet";
+import useFetchMetObjects from "../hooks/useFetchMetObjects";
 
 function MetGrid() {
   // if you want to change the name of the variable data you can by writing it in the curly braces like: data: artwork then refer to data in the return to artwork versus data
-  const { data, loading, error } = useFetchMet();
+  const { data, loading, error } = useFetchMetObjects();
 
   // this is checking to see if the loading is true
-  if (loading) return <h4>Loading...</h4>;
+  if (loading) return <LoadText>Loading...</LoadText>;
 
   // if (error) console.log(error);
   console.log("inside component MetGrid:", data);
   return (
     <div className="CardGrid">
-      {/* <h3>Below are the Met Object Ids:</h3> */}
+      {/* Below is the Data displayed for the met objects  */}
       <div className="CardWrapper">
         {data.map(record => (
           <div className="Card" key={record.data.objectID}>
@@ -32,3 +33,7 @@ function MetGrid() {
 }
 
 export default MetGrid;
+
+const LoadText = styled.h4`
+  margin-top: 15px;
+`;

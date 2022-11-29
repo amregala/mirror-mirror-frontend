@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -49,13 +50,12 @@ const LoginForm = props => {
       .then(resJson => {
         console.log(resJson);
         console.log(user);
-        console.log(url);
         // getSelfies();
       });
     setUser("");
     setPassword("");
     // console.log(success);
-    navigate("/profile");
+    navigate("/profile/");
   };
 
   const getSelfies = () => {

@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
-// import { MetObjectIDs } from "../MetObjectIDs";
 import api from "../api/metObjects";
 
-function useFetchMet() {
+function useFetchMetObjects() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,13 +21,18 @@ function useFetchMet() {
     437875, 435807, 341453, 10205, 20639, 437317, 435856, 336324, 437531,
     441115, 669033, 438722, 436454, 336228, 626692, 334312, 667471, 211509,
     436367, 435873, 437879, 460858, 435670, 393509, 391625, 423003, 15078,
-    10606, 13393, 363671, 271813, 16859, 428637, 392912, 340905, 459214, 286386,
+    10606, 13393, 363671, 271813, 16859, 428637, 392912, 340905, 459214, 286386, 426019, 334135, 286022, 698749,
+    369807, 789798, 459963, 438545, 393502, 393491, 283119, 359324, 368058,
+    15307, 358786, 765749, 360121, 391677, 371742, 391676, 391675, 423005,
+    821857, 420955, 639556, 286230, 11786, 382550, 364147, 238889, 773290,
+    286164, 294434, 384575, 384605, 342463, 730800, 821858, 373813, 285754,
+    376109, 337883, 435895, 387677, 700489, 459074, 437921, 436709, 285444,
+    200640, 437396,
   ];
 
   const getData = async () => {
     setLoading(true);
     await Promise.all(endpoints.map(endpoint => api.get(`/${endpoint}`)))
-      // .then(data => console.log("this is where this is happening:", data))
       .then(response => setData(response))
       .catch(err => {
         setError(err);
@@ -43,4 +46,4 @@ function useFetchMet() {
   return { data, loading, error };
 }
 
-export default useFetchMet;
+export default useFetchMetObjects;

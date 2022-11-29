@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import config from "../../api/axios";
+
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -59,7 +59,7 @@ const SignupForm = props => {
     setEmail("");
     setPassword("");
     setUsername("");
-    navigate("/profile");
+    // navigate("/profile");
 
   };
 

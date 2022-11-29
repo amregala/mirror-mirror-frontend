@@ -8,9 +8,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 // ==== SPECIFIC FORMS THAT DISPLAY ON LANDING NAV
-import LoginForm from "../forms/LoginForm";
+// import LoginForm from "../forms/LoginForm";
+import LoginForm2 from "../forms/LoginForm2";
 import SignupForm from "../forms/SignupForm";
-import LoginForm2 from "../LoginForm2";
+// import SignUpForm2 from "../forms/SignUpForm2";
+
+
 
 export const SidebarData = [
   {
@@ -22,7 +25,7 @@ export const SidebarData = [
     cName: "nav-text",
     subNav: [
       {
-        formType: <LoginForm />,
+        formType: <LoginForm2 />,
       },
     ],
   },

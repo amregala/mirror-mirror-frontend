@@ -40,13 +40,12 @@ export default LandingNav;
 const Nav = styled.div`
   justify-content: flex-start;
   align-items: center;
-  margin-top: -65px;
+  margin-top: -80px;
   position: fixed;
 `;
 
 const NavIcon = styled(Link)`
-  margin-left: 15px;
-
+  margin-left: 25px;
   align-items: center;
   color: white;
 
@@ -65,6 +64,7 @@ const SidebarNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
+  margin-top: -25px;
   margin-left: 0px;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350 ms;

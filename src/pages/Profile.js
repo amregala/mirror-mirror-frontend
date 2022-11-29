@@ -38,14 +38,13 @@
 
 // export default Profile;
 
-import Header from "../components/Header";
+
 import MetGrid from "../components/MetGrid";
 import ProfileNav from "../components/ProfileNav";
 
 const Profile = () => {
   return (
     <div>
-      <Header />
       <ProfileNav />
       <MetGrid />
     </div>
