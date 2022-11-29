@@ -1,37 +1,31 @@
-/* SELFIE COMPONENT  */
+/* Individual Selfie Card/Component  */
 .SelfieCardsWrapper {
-  /* display: inline; */
-  max-width: 500px;
-  display: flex;
-  flex-direction: row;
+  display: inline-grid;
+  max-width: 250px;
+  flex-direction: column;
+  grid-template-columns: 100px 20px 100px;
+  /* grid-template-columns: 100px 100px; */
+  grid-template-rows: 80px auto 80px;
+  /* column-gap: 20px; */
+  row-gap: 55px;
+  justify-content: center;
+  /* align-content: center; */
   flex-wrap: wrap;
-  /* border: solid 3px yellow; */
+  /* margin-right: 15px; */
+  border: solid 3px red;
 }
 
 .SelfieCard {
-  display: flex;
-  display: inline;
+  /* display: flex; */
+  /* display: inline; */
+  /* flex-wrap: wrap; */
   width: 200px;
   height: 200px;
   border: 2px solid white;
   border-radius: 15px;
-  /* margin: 0.5rem; */
-  margin: 2rem;
-  /* margin-top: 20px; */
-  /* margin-right: 30px; */
   position: relative;
   /* overflow: hidden; */
 }
-
-/* .SelfieCard button {
-  background-color: #808080; */
-/* border-radius: 15px; */
-/* width: 80px;
-  height: 30px;
-  color: #c3a527; */
-/* justify-content: end; */
-/* margin-top: 150px;
-} */
 
 .ButtonDiv {
   display: flex;
@@ -40,6 +34,7 @@
   z-index: 1;
   margin-bottom: 15px;
 }
+
 .SelfieCard button {
   margin: 5px;
   background: #d1d1d1;
@@ -54,9 +49,6 @@
   outline: 0 solid transparent;
   padding: 2px 12px;
   width: fit-content;
-  /* width: 15px; */
-
-  word-break: break-word;
   border: 0;
 }
 
@@ -78,19 +70,90 @@
   opacity: 0;
   transition: 0.5s ease;
   color: black;
+  background-color: white;
   /* background-color: #c3a527; */
   /* background-color: #632ce4; */
-  background-color: white;
-  /* font-size: 60px; */
 }
 
 .SelfieCard:hover .Selfie-Overlay {
   opacity: 0.5;
 }
 
-/* SELFIES LIST COMPONENT  */
+/* SELFIES LIST COMPONENT - Containing the cards */
 .SelfiesList {
-  /* background-color: green; */
-  border-right: 5px solid yellow;
+  display: inline-block;
+  /* margin-left: 30px; */
+  padding: 50px;
+  max-width: 600px;
+  border-right: 1px solid #d1d1d1;
   min-height: 100vh;
+  background-color: lightslategray;
+}
+
+/* Add Selfie Form Side  */
+.AddSelfieWrapper {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* background-color: #191a1b; */
+  background-color: purple;
+  width: 600px;
+  display: flex;
+}
+
+.AddSelfieFormBox {
+  /* margin: auto; */
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
+  margin-top: 45px;
+  border: 2px solid white;
+  /* background-color: #632ce4; */
+  /* max-width: 450px; */
+  border-radius: 15px;
+  /* Added from  */
+  /* width: 400px; */
+  padding: 60px;
+  /* Background color is transparent */
+  background: rgba(84, 118, 101, 0.4);
+  /* box-sizing: border-box; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  /* border-radius: 10px; */
+  /* margin-bottom: 10%; */
+}
+
+.AddSelfieLabel {
+  font-family: "Poppins", sans-serif;
+}
+
+.InputLine {
+  display: block;
+  padding: 10px 55px;
+  background: white;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+  /* font-weight: bold; */
+}
+
+.AddSelfieFormBox button {
+  margin: 5px;
+  background: #d1d1d1;
+  border-radius: 999px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 2px 12px;
+  width: fit-content;
+  border: 0;
+}
+
+.AddSelfieFormBox button:hover {
+  background-color: #632ce4;
+  color: whitesmoke;
 }

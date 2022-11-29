@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import EditIcon from "@mui/icons-material/Edit";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+// import EditIcon from "@mui/icons-material/Edit";
+// import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 import useAuth from "../hooks/useAuth";
-import MetGrid from "../components/MetGrid";
+// import MetGrid from "../components/MetGrid";
 import ProfileNav from "../components/ProfileNav";
 import SelfiesList from "../components/SelfiesList";
 import AddSelfie from "../components/AddSelfie";
@@ -19,10 +19,10 @@ const Profile = () => {
       <CrudNav>
         <CrudNavUl>
           <Welcome>Welcome to your profile page {auth.user} </Welcome>
-          <CrudLi>
+          {/* <CrudLi>
             <AddCircleOutlineIcon />
             Add Selfie
-          </CrudLi>
+          </CrudLi> */}
           {/* <CrudLi>
             <EditIcon />
             Edit Selfie
@@ -36,7 +36,8 @@ const Profile = () => {
 
       <BodyProfileWrapper>
         <SelfiesList />
-        {/* <AddSelfie /> */}
+
+        <AddSelfie />
       </BodyProfileWrapper>
     </div>
   );
@@ -47,12 +48,14 @@ export default Profile;
 const CrudNav = styled.nav`
   width: 100%;
   background-color: #333;
+  ${"" /* height: 25px; */}
   display: flex;
   flex-direction: row;
   ${"" /* justify-content: flex-start; */}
   ${"" /* justify-content: flex-end; */}
   display: inline-block;
   margin-top: 15px;
+  border-bottom: solid 1px #808080;
 `;
 
 const Welcome = styled.h2`
@@ -84,7 +87,10 @@ const CrudLi = styled.li`
 `;
 
 const BodyProfileWrapper = styled.div`
+  display: flex;
+
   width: 1200px;
   margin-left: 25px;
+  margin-right: 25px;
+  background-color: yellow;
 `;
-

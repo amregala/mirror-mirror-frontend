@@ -1,22 +1,26 @@
+import "../styles/SelfiesList.css";
+
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const AddSelfie = () => {
   return (
-    <div>
-      Add Selfies Base Form
-      <form>
-        <label>Selfie Title:</label>
-        <input />
+    <div className="AddSelfieWrapper">
+      <div>
+        <form className="AddSelfieFormBox">
+          <h2>Add Selfies Base Form</h2>
+          <label className="AddSelfieLabel">Selfie Title:</label>
+          <input className="InputLine" />
 
-        <label>Year Created</label>
-        <input />
+          <label className="AddSelfieLabel">Year Created</label>
+          <input className="InputLine" />
 
-        <label>Medium</label>
-        <input
-
-        />
-        <button type="submit"><AddCircleOutlineIcon></AddCircleOutlineIcon>Add Selfie</button>
-      </form>
+          <label className="AddSelfieLabel">Medium</label>
+          <input className="InputLine" />
+          <button type="submit">
+            <AddCircleOutlineIcon></AddCircleOutlineIcon>Add Selfie
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Selfie = () => {
       <div className="SelfieCard">
         {/* <div>
         <h3>Selfie</h3>
-        </div> */}
+      </div> */}
         <img className="SelfieImg"></img>
 
         <div className="Selfie-Overlay">
