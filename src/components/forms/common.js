@@ -98,11 +98,13 @@ export const SubmitButton = styled.button`
   cursor: pointer;
   transition: all, 240ms ease-in-out;
   background: #632ce4;
-  background: linear-gradient(
+  ${
+    "" /* background: linear-gradient(
     58 deg,
     rgba(241, 196, 15, 1) 20%,
     rgba(243, 172, 18, 1) 100%
-  );
+  ); */
+  }
 
   &:hover {
     filter: brightness(1.03);

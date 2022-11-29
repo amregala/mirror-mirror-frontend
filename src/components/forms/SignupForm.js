@@ -25,7 +25,7 @@ let baseURL = "http://localhost:3001";
 
 console.log("current baseURL:", baseURL);
 
-const SignupForm = props => {
+const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");

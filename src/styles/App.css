@@ -2,9 +2,19 @@
   Fonts being used in this project are:
   * font-family: 'Bebas Neue', sans-serif;
   * font-family: 'Poppins', sans-serif;
+
+  Colors Schemes:
+  Dark Grey (Main background) - #191a1b
+  Yellow - #c3a527
+  Purple - #632ce4 
+  Grey - #808080
+  Grey/White (On Hover of drop down) - #D1D1D1
+  White - #ffffff
+
 ==================== */
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;400;600;700&display=swap");
+
 * {
   padding: 0;
   margin: 0;

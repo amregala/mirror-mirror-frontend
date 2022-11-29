@@ -35,5 +35,6 @@ function MetGrid() {
 export default MetGrid;
 
 const LoadText = styled.h4`
-  margin-top: 15px;
+  margin-top: 25px;
+  margin-left: 25px;
 `;

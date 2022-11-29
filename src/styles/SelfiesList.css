@@ -1,0 +1,96 @@
+/* SELFIE COMPONENT  */
+.SelfieCardsWrapper {
+  /* display: inline; */
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: solid 3px yellow; */
+}
+
+.SelfieCard {
+  display: flex;
+  display: inline;
+  width: 200px;
+  height: 200px;
+  border: 2px solid white;
+  border-radius: 15px;
+  /* margin: 0.5rem; */
+  margin: 2rem;
+  /* margin-top: 20px; */
+  /* margin-right: 30px; */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+/* .SelfieCard button {
+  background-color: #808080; */
+/* border-radius: 15px; */
+/* width: 80px;
+  height: 30px;
+  color: #c3a527; */
+/* justify-content: end; */
+/* margin-top: 150px;
+} */
+
+.ButtonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 185px;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+.SelfieCard button {
+  margin: 5px;
+  background: #d1d1d1;
+  border-radius: 999px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 2px 12px;
+  width: fit-content;
+  /* width: 15px; */
+
+  word-break: break-word;
+  border: 0;
+}
+
+.SelfieCard button:hover {
+  background-color: #632ce4;
+  color: whitesmoke;
+}
+
+.Selfie-Overlay {
+  text-align: center;
+  position: absolute;
+  padding-top: 20px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  color: black;
+  /* background-color: #c3a527; */
+  /* background-color: #632ce4; */
+  background-color: white;
+  /* font-size: 60px; */
+}
+
+.SelfieCard:hover .Selfie-Overlay {
+  opacity: 0.5;
+}
+
+/* SELFIES LIST COMPONENT  */
+.SelfiesList {
+  /* background-color: green; */
+  border-right: 5px solid yellow;
+  min-height: 100vh;
+}

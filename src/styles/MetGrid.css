@@ -1,7 +1,7 @@
 .CardWrapper {
     max-width: 1200px;
     /* width: 400px; */
-    margin: 25px;
+    margin: 30px;
     display: flex;
     grid-template-columns: auto auto auto;
     flex-flow: row wrap;

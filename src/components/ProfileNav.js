@@ -2,7 +2,7 @@ import "../styles/ProfileNav.css";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth"
+import useAuth from "../hooks/useAuth";
 import useLogout from "../hooks/useLogout";
 
 // Icons from Material UI
@@ -15,41 +15,16 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ProfileNav = () => {
-  const { setAuth } = useAuth();
+  const { auth } = useAuth();
+  console.log(auth.user);
   const navigate = useNavigate();
-  
-  
-  const logout = useLogout();
-  // console.log(user)
 
-  // console.log (setAuth({}))
+  const logout = useLogout();
 
   const signOut = async () => {
     await logout();
     navigate("/");
   };
-
-  // let baseURL = "http://localhost3001";
-
-  // const handleLogout = e => {
-  //   e.preventDefault();
-  //   const url = baseURL + "/users/logout";
-   
-  //   // const user = { username, password };
-  //   fetch(url, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     credentials: "include",
-  //   })
-  //     .then(res => res.json())
-  //     .then(resJson => {
-  //       console.log(resJson);
-  //       console.log(url);
-  //     });
-  //   navigate("/");
-  // };
 
   return (
     <Navbar>
