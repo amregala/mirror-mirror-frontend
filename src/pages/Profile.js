@@ -88,9 +88,8 @@ const CrudLi = styled.li`
 
 const BodyProfileWrapper = styled.div`
   display: flex;
-
   width: 1200px;
   margin-left: 25px;
   margin-right: 25px;
-  background-color: yellow;
+
 `;

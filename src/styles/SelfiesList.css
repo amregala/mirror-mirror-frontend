@@ -7,23 +7,22 @@
   /* grid-template-columns: 100px 100px; */
   grid-template-rows: 80px auto 80px;
   /* column-gap: 20px; */
-  row-gap: 55px;
-  justify-content: center;
-  /* align-content: center; */
+  row-gap: 50px;
   flex-wrap: wrap;
-  /* margin-right: 15px; */
-  border: solid 3px red;
+
+  /* border: solid 3px red; */
 }
 
 .SelfieCard {
   /* display: flex; */
-  /* display: inline; */
-  /* flex-wrap: wrap; */
+  display: inline;
+  flex-wrap: wrap;
   width: 200px;
   height: 200px;
   border: 2px solid white;
   border-radius: 15px;
   position: relative;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
   /* overflow: hidden; */
 }
 
@@ -58,6 +57,7 @@
 }
 
 .Selfie-Overlay {
+  border-radius: 15px;
   text-align: center;
   position: absolute;
   padding-top: 20px;
@@ -79,15 +79,17 @@
   opacity: 0.5;
 }
 
-/* SELFIES LIST COMPONENT - Containing the cards */
+/* SELFIES LIST COMPONENT - CONTAINS THE CARDS GRID */
 .SelfiesList {
   display: inline-block;
-  /* margin-left: 30px; */
-  padding: 50px;
-  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-left: 85px;
+  width: 600px;
   border-right: 1px solid #d1d1d1;
   min-height: 100vh;
-  background-color: lightslategray;
+  /* background-color: lightslategray; */
 }
 
 /* Add Selfie Form Side  */
@@ -95,28 +97,22 @@
   /* display: flex; */
   /* flex-wrap: wrap; */
   /* background-color: #191a1b; */
-  background-color: purple;
+  /* background-color: purple; */
+  padding-left: 85px;
   width: 600px;
   display: flex;
 }
 
 .AddSelfieFormBox {
-  /* margin: auto; */
-  /* justify-content: center;
-  align-items: center;
-  align-content: center; */
   margin-top: 45px;
   border: 2px solid white;
-  /* background-color: #632ce4; */
-  /* max-width: 450px; */
   border-radius: 15px;
-  /* Added from  */
-  /* width: 400px; */
+  color: black;
   padding: 60px;
   /* Background color is transparent */
-  background: rgba(84, 118, 101, 0.4);
+  background: rgba(186, 186, 186, 0.735);
   /* box-sizing: border-box; */
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
   /* border-radius: 10px; */
   /* margin-bottom: 10%; */
 }
@@ -133,7 +129,6 @@
   cursor: pointer;
   border-radius: 5px;
   color: black;
-  /* font-weight: bold; */
 }
 
 .AddSelfieFormBox button {
