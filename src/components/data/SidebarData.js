@@ -1,5 +1,3 @@
-import React from "react";
-
 // ==== ICONS FROM MATERIAL UI ====//
 import LoginIcon from "@mui/icons-material/Login";
 import InfoIcon from "@mui/icons-material/Info";
@@ -8,12 +6,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 // ==== SPECIFIC FORMS THAT DISPLAY ON LANDING NAV
-// import LoginForm from "../forms/LoginForm";
-import LoginForm2 from "../forms/LoginForm2";
+import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
-// import SignUpForm2 from "../forms/SignUpForm2";
-
-
 
 export const SidebarData = [
   {
@@ -25,7 +19,7 @@ export const SidebarData = [
     cName: "nav-text",
     subNav: [
       {
-        formType: <LoginForm2 />,
+        formType: <LoginForm />,
       },
     ],
   },

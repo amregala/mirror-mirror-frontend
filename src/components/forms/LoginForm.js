@@ -1,7 +1,7 @@
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
-
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import {
   // BoxContainer,
@@ -22,14 +22,15 @@ let baseURL = "http://localhost:3001";
 // }
 
 const LoginForm = props => {
-  const [user, setUser] = useState("");
-  // const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  // const [errMsg, setErrMsg] = useState("");
-  // THERORETICALLY WE WOULD REPLACE SUCCESS WITH ACTION FROM REACT ROUTER
-  const [success, setSuccess] = useState(false);
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/profile";
+
+  const [user, setUser] = useState("");
+  const [pwd, setPwd] = useState("");
+  // const [errMsg, setErrMsg] = useState("");
 
   const handleLogin = e => {
     e.preventDefault();
@@ -40,9 +41,8 @@ const LoginForm = props => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // username: username,
         username: user,
-        password: password,
+        password: pwd,
       }),
       credentials: "include",
     })
@@ -50,24 +50,11 @@ const LoginForm = props => {
       .then(resJson => {
         console.log(resJson);
         console.log(user);
-        // getSelfies();
       });
+    setAuth({ user, pwd });
     setUser("");
-    setPassword("");
-    // console.log(success);
-    navigate("/profile/");
-  };
-
-  const getSelfies = () => {
-    fetch(baseURL + "/selfies", {
-      credentials: "include",
-    }).then(res => {
-      if (res.status === 200) {
-        return res.json();
-      } else {
-        return [];
-      }
-    });
+    setPwd("");
+    navigate(from, { replace: true });
   };
 
   return (
@@ -82,8 +69,6 @@ const LoginForm = props => {
             placeholder="username"
             id="username"
             autoComplete="off"
-            // value={username}
-            // onChange={e => setUsername(e.target.value)}
             value={user}
             onChange={e => setUser(e.target.value)}
             required
@@ -93,8 +78,8 @@ const LoginForm = props => {
             type="password"
             placeholder="password"
             id="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            value={pwd}
+            onChange={e => setPwd(e.target.value)}
             required
           />
 

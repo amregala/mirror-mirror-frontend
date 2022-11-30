@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
@@ -22,6 +21,7 @@ const Unauthorized = () => {
 
 export default Unauthorized;
 
+// ==== STYLED COMPONENTS ====//
 const UnAuthDiv = styled.div`
   margin-top: 10px;
   margin-left: 25px;

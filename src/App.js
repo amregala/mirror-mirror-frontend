@@ -1,7 +1,7 @@
 import "./styles/App.css";
-
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import api from "./api/axios"
+
 
 import Layout from "./components/Layout";
 import Header from "./components/Header";

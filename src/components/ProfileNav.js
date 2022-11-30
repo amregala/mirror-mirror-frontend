@@ -9,9 +9,7 @@ import useLogout from "../hooks/useLogout";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import EditIcon from "@mui/icons-material/Edit";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import SettingsIcon from '@mui/icons-material/Settings';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ProfileNav = () => {
@@ -98,26 +96,14 @@ function DropdownMenu() {
         <div className="menu">
           <DropdownItem leftIcon={<PersonIcon />}>My Profile</DropdownItem>
           <DropdownItem
-            leftIcon={<AddCircleOutlineIcon />}
+            leftIcon={<SettingsIcon />}
             rightIcon={<ChevronRightIcon />}
             // goToMenu="add"
           >
-            Add Selfie
+            Settings
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<EditIcon />}
-            rightIcon={<ChevronRightIcon />}
-            // goToMenu="edit"
-          >
-            Edit Selfie
-          </DropdownItem>
-          <DropdownItem
-            leftIcon={<HighlightOffIcon />}
-            rightIcon={<ChevronRightIcon />}
-            // goToMenu="delete"
-          >
-            Delete Selfie
-          </DropdownItem>
+         
+          
         </div>
       </CSSTransition>
     </div>

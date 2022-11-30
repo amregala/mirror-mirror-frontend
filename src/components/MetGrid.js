@@ -34,6 +34,7 @@ function MetGrid() {
 
 export default MetGrid;
 
+// ==== STYLED COMPONENTS ====//
 const LoadText = styled.h4`
   margin-top: 25px;
   margin-left: 25px;

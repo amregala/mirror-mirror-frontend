@@ -122,8 +122,10 @@
 }
 
 .InputLine {
+
   display: block;
-  padding: 10px 55px;
+  width: 200px;
+  padding: 10px 10px;
   background: white;
   border: 0 none;
   cursor: pointer;
