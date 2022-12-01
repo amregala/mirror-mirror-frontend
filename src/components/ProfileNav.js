@@ -14,7 +14,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ProfileNav = () => {
   const { auth } = useAuth();
-  console.log(auth.user);
+  // console.log(auth.user);
   const navigate = useNavigate();
 
   const logout = useLogout();

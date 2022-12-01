@@ -7,14 +7,15 @@ import useAuth from "../hooks/useAuth";
 
 // import MetGrid from "../components/MetGrid";
 import ProfileNav from "../components/ProfileNav";
-import SelfiesList from "../components/SelfiesList";
+import SelfiesList from "../_tests-drafts_/SelfiesList";
 import AddSelfie from "../components/AddSelfie";
-// import Selfie from "../components/Selfie";
+import Selfie from "../_tests-drafts_/Selfie";
 // import MetGrid from "../components/MetGrid";
+import SelfieGrid from "../components/SelfieGrid";
 
 const Profile = () => {
   const { auth } = useAuth();
-  console.log(auth.user);
+  // console.log(auth.user);
 
   return (
     <div>
@@ -26,7 +27,7 @@ const Profile = () => {
       </CrudNav>
 
       <BodyProfileWrapper>
-        <SelfiesList />
+        <SelfieGrid />
         <AddSelfie />
       </BodyProfileWrapper>
     </div>

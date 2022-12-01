@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 
 const useLogout = () => {
   const { auth } = useAuth();
-  console.log (auth.user)
+  // console.log (auth.user)
 
   const logout = async () => {
     // setAuth({});
