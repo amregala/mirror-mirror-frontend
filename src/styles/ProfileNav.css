@@ -10,8 +10,8 @@
 
 ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-right: 15px;
+  /* padding: 5px; */
 }
 
 a {
@@ -19,24 +19,17 @@ a {
   text-decoration: none;
 }
 
-/* Top Navigation Bar */
-
-/* <nav> */
-.navbar {
-  /* height: var(--nav-size); */
-  /* background-color: var(--bg); */
-  /* padding: 0 1rem; */
-  /* border-bottom: var(--border); */
-  margin-top: -55px;
-  margin-right: 15px;
-}
-
 /* <ul> */
 .navbar-nav {
-  max-width: 100%;
+  background-color: #383838;
+  width: 100%;
   height: 100%;
   display: flex;
+  color: white;
   justify-content: flex-end;
+  border-bottom: solid 1px #808080;
+  padding: 5px;
+  padding-right: 15px;
 }
 
 /* <li> */
@@ -55,7 +48,7 @@ a {
   background-color: #808080;
   border-radius: 50%;
   padding: 5px;
-  margin: 2px;
+  margin: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +72,6 @@ a {
 }
 
 /* Dropdown Menu */
-
 .dropdown {
   position: absolute;
   top: 145px;

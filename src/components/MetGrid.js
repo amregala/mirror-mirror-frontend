@@ -12,21 +12,22 @@ function MetGrid() {
   // if (error) console.log(error);
   console.log("inside component MetGrid:", data);
   return (
-    <div className="CardGrid">
+    <div>
       {/* Below is the Data displayed for the met objects  */}
       <div className="CardWrapper">
-        {data.map(record => (
-          <div className="Card" key={record.data.objectID}>
-            <img className="Card_Img" src={record.data.primaryImage}></img>
-            <div className="Card-Overlay">
-              <h3>{record.data.title} </h3>
-              <h4>{record.data.artistDisplayName}</h4>
-              <h6>{record.data.repository}</h6>
-              <h4>{record.data.objectID}</h4>
+        {data &&
+          data.map(record => (
+            <div className="Card" key={record.data.objectID}>
+              <img className="Card_Img" src={record.data.primaryImage}></img>
+              <div className="Card-Overlay">
+                <h3>{record.data.title} </h3>
+                <h4>{record.data.artistDisplayName}</h4>
+                <h6>{record.data.repository}</h6>
+                <h4>{record.data.objectID}</h4>
+              </div>
+              <h6>{record.data.medium}</h6>
             </div>
-            <h6>{record.data.medium}</h6>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
@@ -36,6 +37,8 @@ export default MetGrid;
 
 // ==== STYLED COMPONENTS ====//
 const LoadText = styled.h4`
+  font-size: 24px;
   margin-top: 25px;
-  margin-left: 25px;
+  text-align: right;
+  margin-right: 25px;
 `;

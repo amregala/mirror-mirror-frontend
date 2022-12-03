@@ -1,34 +1,58 @@
+import "../styles/App.css";
 import styled from "styled-components";
+import { useState } from "react";
 import useAuth from "../hooks/useAuth";
+// import api from "../api/axios";
+import useFetchSelfies from "../hooks/useFetchSelfies";
 
 // import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 // import EditIcon from "@mui/icons-material/Edit";
 // import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-
-// import MetGrid from "../components/MetGrid";
 import ProfileNav from "../components/ProfileNav";
-import SelfiesList from "../_tests-drafts_/SelfiesList";
 import AddSelfie from "../components/AddSelfie";
-import Selfie from "../_tests-drafts_/Selfie";
-// import MetGrid from "../components/MetGrid";
 import SelfieGrid from "../components/SelfieGrid";
+
+let baseURL = "http://localhost:3001";
 
 const Profile = () => {
   const { auth } = useAuth();
   // console.log(auth.user);
+  const { uploads, loading, error } = useFetchSelfies();
+  const [selfies, setSelfies] = useState([]);
+  // console.log(selfies)
+
+  // let copyOfUploads = {...uploads}
+  // console.log(copyOfUploads)
+  // setSelfies(copyOfUploads)
+
+  const handleDelete = id => {
+    const url = baseURL + `/selfies/${id}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(response => {
+      const selfiesList = uploads.filter(upload => upload._id !== id);
+      setSelfies(selfiesList);
+      console.log("Selfie deleted successfully");
+    });
+  };
 
   return (
-    <div>
+    <div className="Main">
       <ProfileNav />
-      <CrudNav>
-        {/* <CrudNavUl> */}
-        <Welcome>Welcome to your profile page {auth.user} </Welcome>
-        {/* </CrudNavUl> */}
-      </CrudNav>
 
       <BodyProfileWrapper>
-        <SelfieGrid />
         <AddSelfie />
+        <Line>
+          <H2>Added Selfies</H2>
+       
+        <SelfieGrid uploads={uploads} handleDelete={handleDelete} />
+        </Line>
+        {/* <div> */}
+        {/* <AddSelfie /> */}
+        {/* </div> */}
       </BodyProfileWrapper>
     </div>
   );
@@ -37,20 +61,19 @@ const Profile = () => {
 export default Profile;
 
 // ==== STYLED COMPONENTS ====//
-const CrudNav = styled.nav`
-  width: 100%;
-  background-color: #333;
-  ${"" /* height: 25px; */}
-  display: flex;
-  flex-direction: row;
-  ${"" /* justify-content: flex-start; */}
-  ${"" /* justify-content: flex-end; */}
-  ${"" /* display: inline-block; */}
-  margin-top: 15px;
-  border-bottom: solid 1px #808080;
-`;
+// const CrudNav = styled.nav`
+//   width: 100%;
+//   background-color: #333;
+//   display: flex;
+//   flex-direction: row;
+//   ${"" /* justify-content: flex-start; */}
+//   ${"" /* justify-content: flex-end; */}
+//   ${"" /* display: inline-block; */}
+//   margin-top: 15px;
+//   border-bottom: solid 1px #808080;
+// `;
 
-const Welcome = styled.h2`
+const H2 = styled.h2`
   align-text: left;
   font-size: 20px;
   ${"" /* color: #c3a527; */}
@@ -59,16 +82,16 @@ const Welcome = styled.h2`
   margin-left: 15px;
 `;
 
-// const CrudNavUl = styled.ul`
-//   justify-content: flex-end;
-//   color: #fff;
-//   list-style-type: none;
-//   display: flex;
-//   flex-wrap: nowrap;
-//   align-items: center;
-//   font-size: 16px;
-//   margin-right: 15px;
-// `;
+const CrudNavUl = styled.ul`
+  //   justify-content: flex-end;
+
+  //   display: flex;
+  //   flex-wrap: nowrap;
+  //   align-items: center;
+  //   font-size: 16px;
+  //   margin-right: 15px;
+  background-color: blue;
+`;
 
 // const CrudLi = styled.li`
 //   padding: 10px;
@@ -81,8 +104,15 @@ const Welcome = styled.h2`
 // `;
 
 const BodyProfileWrapper = styled.div`
+  max-width: 1920px;
+  ${"" /* padding: 10px; */}
+  ${"" /* padding-left: 35px; */}
   display: flex;
-  width: 1200px;
-  margin-left: 25px;
-  margin-right: 25px;
+  flex-flow: row wrap;
+  justify-content: center;
+  ${"" /* background-color: green; */}
+`;
+
+const Line = styled.div`
+  border-top: 1px solid #808080;
 `;

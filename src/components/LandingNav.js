@@ -12,7 +12,7 @@ const LandingNav = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div>
+    <>
       <Nav>
         <NavIcon to="#">
           <MenuIcon
@@ -30,7 +30,7 @@ const LandingNav = () => {
           })}
         </SidebarWrap>
       </SidebarNav>
-    </div>
+    </>
   );
 };
 
@@ -38,16 +38,16 @@ export default LandingNav;
 
 // ==== STYLED COMPONENTS ====//
 const Nav = styled.div`
+  width: 100%;
+  background-color: #383838;
+  padding-top: 3px;
+  flex-direction: row;
+  border-bottom: solid 1px #808080;
   justify-content: flex-start;
-  align-items: center;
-  margin-top: -85px;
-  margin-left: 25px;
-  position: fixed;
 `;
 
 const NavIcon = styled(Link)`
-
-  align-items: center;
+  margin-left: 15px;
   color: white;
 
   &:hover {
@@ -65,7 +65,7 @@ const SidebarNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
-  margin-top: -30px;
+  margin-top: 0px;
   margin-left: 0px;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350 ms;

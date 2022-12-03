@@ -25,11 +25,15 @@ const Wrapper = styled.header`
 `;
 
 const Title = styled.h1`
-  ${"" /* color: #808080; */}
+  color: #808080;
   color: white;
   letter-spacing: 9px;
   font-size: 65px;
-  /* background-color: blue; */
+
+  &:hover {
+    cursor: pointer;
+    color: #c3a527;
+  }
 `;
 
 const Subtitle = styled.h2`

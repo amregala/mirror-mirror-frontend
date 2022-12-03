@@ -1,9 +1,9 @@
-import "../styles/SelfiesList.css";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 
 function useFetchSelfies() {
   const [uploads, setUploads] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -11,11 +11,13 @@ function useFetchSelfies() {
   }, []);
 
   const getUploads = async () => {
+    setLoading(true);
     try {
       const response = await api.get("/selfies");
       setUploads(response.data.selfies);
       console.log("UseFetchSelfies response.data:", response);
-      console.log("UseFetch setUploads", uploads)
+      // console.log("UseFetch setUploads", uploads)
+      setLoading(false);
     } catch (err) {
       if (err.response) {
         console.log(err.response.data);
@@ -26,7 +28,7 @@ function useFetchSelfies() {
       }
     }
   };
-  return { uploads, error };
+  return { uploads, loading, error };
 }
 
 export default useFetchSelfies;

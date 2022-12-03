@@ -30,4 +30,11 @@ const sampleSelfies = [
     year: "1433",
     medium: "oil on canvas",
   },
+{
+  title: "Le Désespéré ",
+  image:
+    "https://artincontext.org/wp-content/uploads/2021/03/Famous-Self-Portraits-Courbet.jpg",
+  year: "1845",
+  medium: "oil on canvas"
+}
 ];

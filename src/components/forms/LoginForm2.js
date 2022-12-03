@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // import AuthContext from "../../context/AuthProvider";
-import axios from "../../api/axios";
+import api from "../../api/selfies"
 import useAuth from "../../hooks/useAuth";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -15,7 +15,7 @@ import {
 } from "../forms/common";
 
 // This is what you have in the backend node js
-const LOGIN_URL = "/users/login";
+const LOGIN_URL = "/login";
 
 const LoginForm2 = () => {
   // const { setAuth } = useContext(AuthContext);
@@ -37,12 +37,12 @@ const LoginForm2 = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      const response = await api.post(
         LOGIN_URL,
         JSON.stringify({ username: user, password: pwd }),
         {
           headers: { "Content-Type": "application/json" },
-          // withCredentials: true,
+          withCredentials: true,
         }
       );
       // console.log(resJson)

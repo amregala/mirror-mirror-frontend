@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-
 const LandNavSubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
@@ -40,11 +39,8 @@ const LandNavSubMenu = ({ item }) => {
 
 export default LandNavSubMenu;
 
-
 // ==== STYLED COMPONENTS ====//
 const SidebarLink = styled(Link)`
-  ${"" /* margin-top: 15px; */}
-  ${"" /* margin-top: 0px; */}
   display: flex;
   color: #d5d5d5;
   justify-content: space-between;
@@ -55,7 +51,6 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   border: solid 1px white;
-  ${"" /* background: white; */}
 
   &:hover {
     opacity: 0.8;

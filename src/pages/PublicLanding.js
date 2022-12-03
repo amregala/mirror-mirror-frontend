@@ -1,12 +1,16 @@
 import LandingNav from "../components/LandingNav";
 import MetGrid from "../components/MetGrid";
+// import SelfieGrid from "../components/SelfieGrid";
+// import useFetchSelfies from "../hooks/useFetchSelfies";
 
 const PublicLanding = () => {
+  // const { uploads, loading, error } = useFetchSelfies();
   return (
-    <div>
+    <>
       <LandingNav />
       <MetGrid />
-    </div>
+      {/* <SelfieGrid uploads={uploads} /> */}
+    </>
   );
 };
 

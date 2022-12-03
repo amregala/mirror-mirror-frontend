@@ -39,3 +39,18 @@
 // };
 
 // export default SelfiesList;
+
+
+
+
+const SelfiesGrid2 = ({selfies}) => {
+  return (
+    <div>
+      {uploads.map(upload => (
+        <SelfieCard key={upload.id} upload={upload} />
+      ))}
+    </div>
+  )
+}
+
+export default SelfiesGrid2

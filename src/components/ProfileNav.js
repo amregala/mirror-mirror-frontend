@@ -1,4 +1,5 @@
 import "../styles/ProfileNav.css";
+import styled from "styled-components";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,7 +10,7 @@ import useLogout from "../hooks/useLogout";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
-import SettingsIcon from '@mui/icons-material/Settings';
+import SettingsIcon from "@mui/icons-material/Settings";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const ProfileNav = () => {
@@ -26,6 +27,9 @@ const ProfileNav = () => {
 
   return (
     <Navbar>
+      <H2>
+        Welcome to your profile page <Span>{auth.user}</Span>{" "}
+      </H2>
       <NavItem icon={<ArrowDropDownIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
@@ -98,12 +102,10 @@ function DropdownMenu() {
           <DropdownItem
             leftIcon={<SettingsIcon />}
             rightIcon={<ChevronRightIcon />}
-            // goToMenu="add"
+            // goToMenu="settings"
           >
             Settings
           </DropdownItem>
-         
-          
         </div>
       </CSSTransition>
     </div>
@@ -111,3 +113,18 @@ function DropdownMenu() {
 }
 
 export default ProfileNav;
+
+// ==== STYLED COMPONENTS ====//
+
+const H2 = styled.h2`
+  align-text: left;
+  font-size: 20px;
+  ${"" /* color: #c3a527; */}
+  color: white;
+  padding: 10px;
+  margin-left: 15px;
+`;
+
+const Span = styled.span`
+  color: #c3a527;
+`;

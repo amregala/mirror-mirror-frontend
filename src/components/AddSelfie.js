@@ -1,13 +1,19 @@
-import "../styles/SelfiesList.css";
-import { useState } from "react";
+import "../styles/SelfiesGrid.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 // import api from "../api/axios";
 
-// import axios from "axios";
+import useFetchSelfies from "../hooks/useFetchSelfies";
 let baseURL = "http://localhost:3001";
 
 const AddSelfie = () => {
+  // const navigate = useNavigate();
+  const { uploads, error } = useFetchSelfies();
+  // console.log("Uploads in Add Selfie:", uploads);
+
+  // const [upload, setUpload] = useState({ uploads });
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [medium, setMedium] = useState("");
@@ -15,8 +21,9 @@ const AddSelfie = () => {
 
   const handleAdd = async e => {
     e.preventDefault();
-    const selfie = { title, year, medium, image };
-    // console.log (selfie)
+
+    const newSelfie = { title, year, medium, image };
+    // console.log (newSelfie)
 
     const url = baseURL + "/selfies";
     fetch(url, {
@@ -24,23 +31,21 @@ const AddSelfie = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        title: title,
-        year: year,
-        medium: medium,
-        image: image,
-      }),
-    })
-      .then(res => res.json())
-      .then(resJson => {
-        console.log(resJson);
-        // console.log(email, password);
-        // CALL USER PROFILE PAGE HERE
-      });
+      body: JSON.stringify(newSelfie),
+    }).then(res => res.json());
+    // .then((response)=> setUpload(response))
+    // .then(response => {
+    // console.log(response);
+    // .then(resJson => )
+    // console.log(email, password);
+    // CALL USER PROFILE PAGE HERE
+    // });
     setTitle("");
     setYear("");
     setMedium("");
     setImage("");
+    // navigate("/profile");
+    // return {upload }
   };
 
   return (
