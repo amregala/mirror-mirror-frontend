@@ -9,9 +9,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 let baseURL = "http://localhost:3001";
 
 const AddSelfie = ({ handleAddNew }) => {
-  // const { uploads, error } = useFetchSelfies();
-  // console.log("Uploads in Add Selfie:", uploads);
-
+ 
   const [selfies, setSelfies] = useState([]);
   // const [uploads, setUploads] = useState([]);
   const [title, setTitle] = useState("");

@@ -11,6 +11,7 @@ import api from "../api/axios";
 import ProfileNav from "../components/ProfileNav";
 import AddSelfie from "../components/AddSelfie";
 import SelfieGrid from "../components/SelfieGrid";
+import EditSelfie from "../components/EditSelfie";
 
 let baseURL = "http://localhost:3001";
 
@@ -23,6 +24,12 @@ const Profile = () => {
   const [uploads, setUploads] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedUploadId, setSelectedUploadId] = useState();
+  // Going through all the uploads (all selfies uploaded) find the upload with the same id as the selecteduploaded connected to button click event
+  const selectedUpload = uploads.find(
+    upload => upload._id === selectedUploadId
+  );
+  console.log("This was the selectedUpload:", selectedUpload);
 
   useEffect(() => {
     getUploads();
@@ -48,10 +55,37 @@ const Profile = () => {
   };
 
   // ==== ADDING SELFIE ====//
-function handleAddNew (newSelfie) {
-  setUploads([newSelfie, ...uploads])
-}
+  function handleAddNew(newSelfie) {
+    setUploads([newSelfie, ...uploads]);
+  }
 
+  // ==== EDIT SELFIE ====//
+  function handleUploadSelected(id) {
+    setSelectedUploadId(id);
+    // console.log("this was clicked within the selfie card comp")
+  }
+
+  function handleSelfieEdit(uploadsArrayCopy) {
+    setUploads(uploadsArrayCopy)
+  }
+
+  // const handleSelfieEdit = (id, newSelf) => {
+  //   e.preventDefault();
+
+  //   const url = baseURL + `/selfies/${id}`;
+  //   fetch(url, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then(response => {
+  //     const newSelfies = [...uploads];
+  //     const index = newSelfies.findIndex(selfie => selfie.id === id);
+  //     newSelfies[index] = newSelf;
+  //     setUploads(newSelfies);
+  //     //console.log("Selfie was edited successfully")
+  //   });
+  // };
 
   // ==== DELETE SELFIE ====//
   const handleDelete = id => {
@@ -73,12 +107,23 @@ function handleAddNew (newSelfie) {
       <ProfileNav />
 
       <BodyProfileWrapper>
-        <AddSelfie uploads={uploads} handleAddNew={handleAddNew}/>
+        <AddSelfie uploads={uploads} handleAddNew={handleAddNew} />
         <Line>
           <H2>Added Selfies</H2>
 
-          <SelfieGrid uploads={uploads} handleDelete={handleDelete} />
+          <SelfieGrid
+            uploads={uploads}
+            handleDelete={handleDelete}
+            handleUploadSelected={handleUploadSelected}
+          />
         </Line>
+        {selectedUpload && (
+          <EditSelfie
+            uploads={uploads}
+            selectedUpload={selectedUpload}
+            handleUploadSelected={handleUploadSelected}
+          />
+        )}
       </BodyProfileWrapper>
     </div>
   );
@@ -87,18 +132,6 @@ function handleAddNew (newSelfie) {
 export default Profile;
 
 // ==== STYLED COMPONENTS ====//
-// const CrudNav = styled.nav`
-//   width: 100%;
-//   background-color: #333;
-//   display: flex;
-//   flex-direction: row;
-//   ${"" /* justify-content: flex-start; */}
-//   ${"" /* justify-content: flex-end; */}
-//   ${"" /* display: inline-block; */}
-//   margin-top: 15px;
-//   border-bottom: solid 1px #808080;
-// `;
-
 const H2 = styled.h2`
   align-text: left;
   font-size: 20px;
@@ -117,16 +150,6 @@ const CrudNavUl = styled.ul`
   //   margin-right: 15px;
   background-color: blue;
 `;
-
-// const CrudLi = styled.li`
-//   padding: 10px;
-//   ${"" /* align-items: space-between; */}
-//   ${"" /* content-align: center; */}
-//   &:hover {
-//     cursor: pointer;
-//     color: #c3a527;
-//   }
-// `;
 
 const BodyProfileWrapper = styled.div`
   max-width: 1920px;

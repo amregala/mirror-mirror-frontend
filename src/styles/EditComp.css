@@ -1,0 +1,27 @@
+.selfie-edit {
+  position: fixed;
+  right: 0;
+  top: 15%;
+  /* padding: 45px; */
+  width: 50%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* .recipe-edit__remove-button-container {
+  text-align: end;
+} */
+
+.EditSelfieFormBox {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border: 2px solid white;
+  border-radius: 15px;
+  color: black;
+  padding: 40px;
+  /* Background color is transparent */
+  /* background: black; */
+  background: #c3a527;
+  /* background: rgba(148, 172, 30, 0.735); */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+}

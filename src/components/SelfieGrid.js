@@ -1,7 +1,7 @@
 import "../styles/SelfiesGrid.css";
 
 import SelfieCard from "./SelfieCard";
-const SelfieGrid = ({ uploads, handleDelete }) => {
+const SelfieGrid = ({ uploads, handleDelete, handleUploadSelected }) => {
 
   return (
     <div className="sGrid">
@@ -11,6 +11,7 @@ const SelfieGrid = ({ uploads, handleDelete }) => {
             key={upload._id}
             upload={upload}
             handleDelete={handleDelete}
+            handleUploadSelected={handleUploadSelected}
           />
         ))}
     </div>
