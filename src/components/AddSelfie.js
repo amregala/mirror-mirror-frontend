@@ -13,7 +13,7 @@ const AddSelfie = () => {
   const { uploads, error } = useFetchSelfies();
   // console.log("Uploads in Add Selfie:", uploads);
 
-  // const [upload, setUpload] = useState({ uploads });
+  const [selfies, setSelfies] = useState([]);
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [medium, setMedium] = useState("");
@@ -33,7 +33,7 @@ const AddSelfie = () => {
       },
       body: JSON.stringify(newSelfie),
     }).then(res => res.json());
-    // .then((response)=> setUpload(response))
+    // .then((response)=> setSelfies(response))
     // .then(response => {
     // console.log(response);
     // .then(resJson => )

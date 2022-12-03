@@ -2,7 +2,6 @@ import "../styles/SelfiesGrid.css";
 
 import SelfieCard from "./SelfieCard";
 const SelfieGrid = ({ uploads, handleDelete }) => {
-  // const { uploads, loading, error } = useFetchSelfies();
 
   return (
     <div className="sGrid">

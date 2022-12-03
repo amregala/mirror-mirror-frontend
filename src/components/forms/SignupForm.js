@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
-
-
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import {
   BoxContainerSignUp,
@@ -26,12 +25,14 @@ let baseURL = "http://localhost:3001";
 console.log("current baseURL:", baseURL);
 
 const SignupForm = () => {
+  const { setAuth } = useAuth();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [pwd, setPwd] = useState("");
+  const [user, setUser] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/profile";
 
   const register = e => {
     e.preventDefault();
@@ -42,25 +43,24 @@ const SignupForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
+        username: user,
         email: email,
-        password: password,
+        password: pwd,
       }),
+      credentials: "include",
     })
       .then(res => res.json())
       .then(resJson => {
-        setSuccess(true);
         console.log(resJson);
-        console.log("in res response:", success);
+        console.log(user);
         // console.log(email, password);
         // CALL USER PROFILE PAGE HERE
       });
-
+    setAuth({ user, pwd });
     setEmail("");
-    setPassword("");
-    setUsername("");
-    // navigate("/profile");
-
+    setPwd("");
+    setUser("");
+    navigate(from, { replace: true });
   };
 
   // const handleSubmit = async (e) => {
@@ -79,9 +79,8 @@ const SignupForm = () => {
           placeholder="username"
           autoComplete="off"
           id="username"
-          // ref={userRef}
-          value={username}
-          onChange={e => setUsername(e.target.value)}
+          value={user}
+          onChange={e => setUser(e.target.value)}
         />
 
         <Input
@@ -89,9 +88,8 @@ const SignupForm = () => {
           placeholder="password"
           autoComplete="off"
           id="password"
-          // ref={userRef}
-          value={password}
-          onChange={e => setPassword(e.target.value)}
+          value={pwd}
+          onChange={e => setPwd(e.target.value)}
         />
 
         <Input

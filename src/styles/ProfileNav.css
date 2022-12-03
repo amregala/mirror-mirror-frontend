@@ -74,10 +74,10 @@ a {
 /* Dropdown Menu */
 .dropdown {
   position: absolute;
-  top: 145px;
+  top: 149px;
   width: 250px;
   height: menuHeight;
-  transform: translateX(-45%);
+  transform: translateX(-50%);
   background-color: var(--bg);
   border: var(--border);
   border-radius: var(--border-radius);

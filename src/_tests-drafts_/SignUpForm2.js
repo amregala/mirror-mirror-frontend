@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../api/axios";
+import axios from "../api/axios";
 
 import {
   BoxContainerSignUp,
@@ -8,7 +8,7 @@ import {
   SmallText,
   Input,
   SubmitButton,
-} from "../forms/common";
+} from "../components/forms/common";
 
 const SIGNUP_URL = "/users/signup";
 

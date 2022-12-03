@@ -2,7 +2,7 @@ import "../styles/ProfileNav.css";
 import styled from "styled-components";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useLogout from "../hooks/useLogout";
 
@@ -17,6 +17,7 @@ const ProfileNav = () => {
   const { auth } = useAuth();
   // console.log(auth.user);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const logout = useLogout();
 

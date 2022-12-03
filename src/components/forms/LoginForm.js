@@ -30,7 +30,6 @@ const LoginForm = props => {
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
-  // const [errMsg, setErrMsg] = useState("");
 
   const handleLogin = e => {
     e.preventDefault();

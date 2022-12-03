@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // import AuthContext from "../../context/AuthProvider";
-import api from "../../api/selfies"
-import useAuth from "../../hooks/useAuth";
+import api from "../api/selfies"
+import useAuth from "../hooks/useAuth";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -12,7 +12,7 @@ import {
   SmallText,
   Input,
   SubmitButton,
-} from "../forms/common";
+} from "../components/forms/common";
 
 // This is what you have in the backend node js
 const LOGIN_URL = "/login";

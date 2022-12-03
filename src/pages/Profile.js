@@ -1,9 +1,10 @@
 import "../styles/App.css";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
-// import api from "../api/axios";
-import useFetchSelfies from "../hooks/useFetchSelfies";
+import { useNavigate, useLocation } from "react-router-dom";
+// import useFetchSelfies from "../hooks/useFetchSelfies";
+import api from "../api/axios"
 
 // import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 // import EditIcon from "@mui/icons-material/Edit";
@@ -17,13 +18,40 @@ let baseURL = "http://localhost:3001";
 const Profile = () => {
   const { auth } = useAuth();
   // console.log(auth.user);
-  const { uploads, loading, error } = useFetchSelfies();
-  const [selfies, setSelfies] = useState([]);
-  // console.log(selfies)
+  const navigate = useNavigate();
+  const location = useLocation();
+  // const { uploads, loading, error } = useFetchSelfies();
+  // const [selfies, setSelfies] = useState([]);
 
-  // let copyOfUploads = {...uploads}
-  // console.log(copyOfUploads)
-  // setSelfies(copyOfUploads)
+  const [uploads, setUploads] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getUploads();
+  }, []);
+  
+  const getUploads = async () => {
+    setLoading(true);
+    try {
+      const response = await api.get("/selfies");
+      setUploads(response.data.selfies);
+      console.log("UseFetchSelfies response.data:", response);
+      console.log("UseFetch setUploads", uploads)
+      setLoading(false);
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      } else {
+        console.log(`Error: ${err.message}`);
+      }
+    }
+  };
+  // return { uploads, loading, error };
+
+
 
   const handleDelete = id => {
     const url = baseURL + `/selfies/${id}`;
@@ -34,7 +62,8 @@ const Profile = () => {
       },
     }).then(response => {
       const selfiesList = uploads.filter(upload => upload._id !== id);
-      setSelfies(selfiesList);
+      setUploads(selfiesList);
+      navigate("/profile");
       console.log("Selfie deleted successfully");
     });
   };
@@ -47,12 +76,9 @@ const Profile = () => {
         <AddSelfie />
         <Line>
           <H2>Added Selfies</H2>
-       
-        <SelfieGrid uploads={uploads} handleDelete={handleDelete} />
+
+          <SelfieGrid uploads={uploads} handleDelete={handleDelete} />
         </Line>
-        {/* <div> */}
-        {/* <AddSelfie /> */}
-        {/* </div> */}
       </BodyProfileWrapper>
     </div>
   );
@@ -84,7 +110,6 @@ const H2 = styled.h2`
 
 const CrudNavUl = styled.ul`
   //   justify-content: flex-end;
-
   //   display: flex;
   //   flex-wrap: nowrap;
   //   align-items: center;
