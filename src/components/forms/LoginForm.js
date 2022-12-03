@@ -4,7 +4,6 @@ import useAuth from "../../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import {
-  // BoxContainer,
   BoxContainerLogin,
   FormContainer,
   HeaderText,
@@ -47,8 +46,7 @@ const LoginForm = props => {
     })
       .then(res => res.json())
       .then(resJson => {
-        console.log(resJson);
-        console.log(user);
+        // console.log(user);
       });
     setAuth({ user, pwd });
     setUser("");

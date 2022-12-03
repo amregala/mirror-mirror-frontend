@@ -22,7 +22,7 @@ let baseURL = "http://localhost:3001";
 //   baseURL = "HEROKU DEPLOYMENT LINK";
 // }
 
-console.log("current baseURL:", baseURL);
+// console.log("current baseURL:", baseURL);
 
 const SignupForm = () => {
   const { setAuth } = useAuth();
@@ -51,10 +51,7 @@ const SignupForm = () => {
     })
       .then(res => res.json())
       .then(resJson => {
-        console.log(resJson);
-        console.log(user);
-        // console.log(email, password);
-        // CALL USER PROFILE PAGE HERE
+        // console.log(user);
       });
     setAuth({ user, pwd });
     setEmail("");
@@ -62,11 +59,6 @@ const SignupForm = () => {
     setUser("");
     navigate(from, { replace: true });
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(email, password);
-  // };
 
   return (
     <BoxContainerSignUp>

@@ -10,7 +10,7 @@ function MetGrid() {
   if (loading) return <LoadText>Loading...</LoadText>;
 
   // if (error) console.log(error);
-  console.log("inside component MetGrid:", data);
+  console.log("Component MetGrid/MetObjects Hook Test:", data);
   return (
     <div>
       {/* Below is the Data displayed for the met objects  */}

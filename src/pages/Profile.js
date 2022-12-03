@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
-// import useFetchSelfies from "../hooks/useFetchSelfies";
-import api from "../api/axios"
+import api from "../api/axios";
 
 // import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 // import EditIcon from "@mui/icons-material/Edit";
@@ -18,10 +17,8 @@ let baseURL = "http://localhost:3001";
 const Profile = () => {
   const { auth } = useAuth();
   // console.log(auth.user);
-  const navigate = useNavigate();
-  const location = useLocation();
-  // const { uploads, loading, error } = useFetchSelfies();
-  // const [selfies, setSelfies] = useState([]);
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
   const [uploads, setUploads] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -30,14 +27,14 @@ const Profile = () => {
   useEffect(() => {
     getUploads();
   }, []);
-  
+
+  // ==== GETTING SELFIES  ====//
   const getUploads = async () => {
     setLoading(true);
     try {
       const response = await api.get("/selfies");
       setUploads(response.data.selfies);
-      console.log("UseFetchSelfies response.data:", response);
-      console.log("UseFetch setUploads", uploads)
+      // console.log("Uploads in profile:", response);
       setLoading(false);
     } catch (err) {
       if (err.response) {
@@ -49,10 +46,14 @@ const Profile = () => {
       }
     }
   };
-  // return { uploads, loading, error };
+
+  // ==== ADDING SELFIE ====//
+function handleAddNew (newSelfie) {
+  setUploads([newSelfie, ...uploads])
+}
 
 
-
+  // ==== DELETE SELFIE ====//
   const handleDelete = id => {
     const url = baseURL + `/selfies/${id}`;
     fetch(url, {
@@ -63,8 +64,7 @@ const Profile = () => {
     }).then(response => {
       const selfiesList = uploads.filter(upload => upload._id !== id);
       setUploads(selfiesList);
-      navigate("/profile");
-      console.log("Selfie deleted successfully");
+      // console.log("Selfie deleted successfully");
     });
   };
 
@@ -73,7 +73,7 @@ const Profile = () => {
       <ProfileNav />
 
       <BodyProfileWrapper>
-        <AddSelfie />
+        <AddSelfie uploads={uploads} handleAddNew={handleAddNew}/>
         <Line>
           <H2>Added Selfies</H2>
 
