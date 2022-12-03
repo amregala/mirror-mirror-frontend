@@ -10,7 +10,7 @@ import {
   SmallText,
   Input,
   SubmitButton,
-} from "./common";
+} from "./formStyles";
 
 let baseURL = "http://localhost:3001";
 // if (process.env.NODE_ENV === "development") {

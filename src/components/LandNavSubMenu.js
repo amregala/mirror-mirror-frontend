@@ -70,8 +70,8 @@ const DropdownLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 14px;
-  margin: 5px;
-  padding: 10px;
+  font-size: 13px;
+  border-right: 1px solid #632ce4;
+  padding: 16px;
   font-family: "Poppins", sans-serif;
 `;

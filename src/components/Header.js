@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <Wrapper>
-      <Link to="/">
+      <Link to="#">
         <Title>MIRROR MIRROR</Title>
       </Link>
 

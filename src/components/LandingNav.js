@@ -57,14 +57,16 @@ const NavIcon = styled(Link)`
 `;
 
 const SidebarNav = styled.nav`
+  position: absolute;
   background: #191a1b;
-  width: 250px;
+  width: 270px;
   ${
     "" /* This will extend the height of the submav to full view height if you want to go back to that - height: 100vh; */
   }
+
   display: flex;
   justify-content: center;
-  position: fixed;
+  ${'' /* position: fixed; */}
   margin-top: 0px;
   margin-left: 0px;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
