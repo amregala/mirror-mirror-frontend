@@ -8,24 +8,13 @@ let baseURL = "http://localhost:3001";
 
 const EditSelfie = ({
   uploads,
-  handleSelfieEdit,
   cardSelected,
   cardSelectedforEdit,
-  handleChange,
+  handleCardChanges,
 }) => {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [medium, setMedium] = useState("");
-  const [image, setImage] = useState("");
-
-  const [editTitle, setEditTitle] = useState("");
-  const [editYear, setEditYear] = useState("");
-  const [editMedium, setEditMedium] = useState("");
-  const [editImage, setEditImage] = useState("");
-
-  //   function handleChange(changes) {
-  //     handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
-  //   }
 
   const handleEdit = async e => {
     e.preventDefault();
@@ -34,49 +23,32 @@ const EditSelfie = ({
     const url = baseURL + `/selfies/${cardSelected._id}`;
     // console.log(url)
 
-    // const response = await fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // }).then(response => response.json())
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        year: year,
+        medium: medium,
+      }),
+    })
+      .then(response => response.json())
+      .then(editedInfo => handleCardChanges(editedInfo))
+      .then(editedInfo => {
+        console.log("Updated title:", title);
+      });
+    setTitle("");
+    setYear("");
+    setMedium("");
   };
-  //   const handleEdit = e => {
-  // const url = baseURL + `/selfies/${selectedUpload}`;
-  // fetch(url, {
-  //   method: "PUT",
-  //   headers: {
-  // "Content-Type": "application/json",
-  //   },
-  // }).then(res => res.json());
-  //   .then(response => {
-  //    ( id, editedUpload) => {
-  //     const uploadsArrayCopy = [...uploads];
-  //     const index = uploadsArrayCopy.findIndex(s => s.id === id);
-  //     uploadsArrayCopy[index] = editedUpload;
-  //     handleSelfieEdit(editedUpload)
-  // }
-  // setUploads(UploadsArrayCopy);
-  //console.log("Selfie was edited successfully")
-  //   });
-  //   };
-
-  //   going to take the id of the selfie we want to change as well as the info from the new selfie info we are goign to replace the old info with
-  //   function handleChangeStuff(id, newSelfie) {
-  //     const uploadsArrayCopy = [...uploads];
-  //     const index = uploadsArrayCopy.findIndex(s => s.id === id);
-  //     uploadsArrayCopy[index] = newSelfie;
-  //   }
-
-  //   function handleChange(changes) {
-  //     handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
-  //   }
 
   return (
     <div className="selfie-edit">
       <div className="selfie-edit__remove-button-container">
         <button
-          className="btn recipe-edit__remove-button"
+          className="btn selfie-edit__remove-button"
           onClick={() => cardSelectedforEdit(undefined)}
         >
           &times;
@@ -88,44 +60,43 @@ const EditSelfie = ({
           Selfie Title:
         </label>
         <input
-          className="InputLine"
+          className="selfie-edit_input"
           id="title"
           type="text"
           autoComplete="off"
-          value={cardSelected.title}
+          placeholder={cardSelected.title}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
         />
 
         <label className="AddSelfieLabel" htmlFor="image">
           Image Link (URL):
         </label>
-        <input
-          className="InputLine"
-          id="image"
-          type="text"
-          autoComplete="off"
-          value={cardSelected.image}
-        />
 
         <label className="AddSelfieLabel" htmlFor="year">
           Year Created:
         </label>
         <input
-          className="InputLine"
+          className="selfie-edit_input"
           id="year"
           type="text"
           autoComplete="off"
-          value={cardSelected.year}
+          placeholder={cardSelected.year}
+          value={year}
+          onChange={e => setYear(e.target.value)}
         />
 
         <label className="AddSelfieLabel" htmlFor="medium">
           Medium:
         </label>
         <input
-          className="InputLine"
+          className="selfie-edit_input"
           id="medium"
           type="text"
           autoComplete="off"
-          value={cardSelected.medium}
+          placeholder={cardSelected.medium}
+          value={medium}
+          onChange={e => setMedium(e.target.value)}
         />
 
         <button onClick={handleEdit}>

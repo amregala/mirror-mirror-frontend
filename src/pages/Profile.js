@@ -2,7 +2,7 @@ import "../styles/App.css";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
-import { useNavigate, useLocation } from "react-router-dom";
+// import { useNavigate, useLocation } from "react-router-dom";
 import api from "../api/axios";
 
 // import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -26,10 +26,8 @@ const Profile = () => {
   const [error, setError] = useState(null);
   const [selectedUploadId, setSelectedUploadId] = useState();
   // Going through all the uploads (all selfies uploaded) find the upload with the same id as the selecteduploaded connected to button click event
-  const cardSelected = uploads.find(
-    upload => upload._id === selectedUploadId
-  );
-  console.log("This was the selectedUpload:", cardSelected);
+  const cardSelected = uploads.find(upload => upload._id === selectedUploadId);
+  // console.log("This was the selectedUpload:", cardSelected);
 
   useEffect(() => {
     getUploads();
@@ -65,14 +63,17 @@ const Profile = () => {
     // console.log("this was clicked within the selfie card component")
   }
 
+  function handleCardChanges(id, editedInfo) {
+    const selfiesArrayCopy = [...uploads];
+    const index = selfiesArrayCopy.findIndex(selfie => selfie._id === id);
+    selfiesArrayCopy[index] = editedInfo;
+    setUploads(selfiesArrayCopy);
+  }
+
   // function handleChange(e) {
   //   e.preventDefault();
-  //   console.log("Clicked to submit changes")
-  // this worked 
-  // }
-
-  // function handleSelfieEdit(uploadsArrayCopy) {
-  //   setUploads(uploadsArrayCopy)
+  //   console.log("Test connectivity - working")
+  //
   // }
 
   // ==== DELETE SELFIE ====//
@@ -102,8 +103,7 @@ const Profile = () => {
           <SelfieGrid
             uploads={uploads}
             handleDelete={handleDelete}
-            cardSelectedforEdit={cardSelectedforEdit}
-            // handleChange={handleChange}
+            cardSelectedforEdit={cardSelectedforEdit}      
           />
 
         </Line>
@@ -111,9 +111,8 @@ const Profile = () => {
           <EditSelfie
             uploads={uploads}
             cardSelected={cardSelected}
-            cardSelectedforEdit={cardSelectedforEdit}
-            // handleChange={handleChange}
-            
+            cardSelectedforEdit={cardSelectedforEdit}          
+            handleCardChanges={handleCardChanges}
           />
         )}
       </BodyProfileWrapper>
@@ -133,15 +132,15 @@ const H2 = styled.h2`
   margin-left: 15px;
 `;
 
-const CrudNavUl = styled.ul`
-  //   justify-content: flex-end;
-  //   display: flex;
-  //   flex-wrap: nowrap;
-  //   align-items: center;
-  //   font-size: 16px;
-  //   margin-right: 15px;
-  background-color: blue;
-`;
+// const CrudNavUl = styled.ul`
+//   //   justify-content: flex-end;
+//   //   display: flex;
+//   //   flex-wrap: nowrap;
+//   //   align-items: center;
+//   //   font-size: 16px;
+//   //   margin-right: 15px;
+//   background-color: blue;
+// `;
 
 const BodyProfileWrapper = styled.div`
   max-width: 1920px;

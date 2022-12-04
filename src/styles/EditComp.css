@@ -1,16 +1,33 @@
 .selfie-edit {
-  position: fixed;
+  /* position: fixed;
   right: 0;
   top: 15%;
-  /* padding: 45px; */
+  padding: 45px; 
+  width: 50%;
+  max-height: 100%;
+  overflow-y: auto;  */
+
+  padding: 30px;
+  padding-top: 10px;
+  position: fixed;
+  right: 0;
+  top: 0;
   width: 50%;
   max-height: 100%;
   overflow-y: auto;
 }
 
-/* .recipe-edit__remove-button-container {
+.selfie-edit__remove-button-container {
   text-align: end;
-} */
+}
+
+.selfie-edit__remove-button {
+  padding: 8;
+  background: white;
+  /* outline: none; */
+  border: solid 2px #c3a527;
+  /* font-size: 1.5rem; */
+}
 
 .EditSelfieFormBox {
   margin-top: 15px;
@@ -24,4 +41,20 @@
   background: #c3a527;
   /* background: rgba(148, 172, 30, 0.735); */
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+}
+
+.selfie-edit_input {
+  display: block;
+  width: 100%;
+  padding: 10px 10px;
+  background: white;
+  border: 1px solid black;
+  /* border: 0 none; */
+  /* cursor: pointer; */
+  border-radius: 15px;
+  color: black;
+}
+
+.selfie-edit_input::placeholder {
+  color: #808080;
 }
