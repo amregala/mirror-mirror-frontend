@@ -6,59 +6,80 @@ import EditIcon from "@mui/icons-material/Edit";
 
 let baseURL = "http://localhost:3001";
 
-const EditSelfie = ({ uploads, selectedUpload, handleUploadSelected, handleSelfieEdit }) => {
-//   const [title, setTitle] = useState("");
-//   const [year, setYear] = useState("");
-//   const [medium, setMedium] = useState("");
-//   const [image, setImage] = useState("");
+const EditSelfie = ({
+  uploads,
+  handleSelfieEdit,
+  cardSelected,
+  cardSelectedforEdit,
+  handleChange,
+}) => {
+  const [title, setTitle] = useState("");
+  const [year, setYear] = useState("");
+  const [medium, setMedium] = useState("");
+  const [image, setImage] = useState("");
 
+  const [editTitle, setEditTitle] = useState("");
+  const [editYear, setEditYear] = useState("");
+  const [editMedium, setEditMedium] = useState("");
+  const [editImage, setEditImage] = useState("");
 
-  function handleChange(changes) {
-    handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
-  }
+  //   function handleChange(changes) {
+  //     handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
+  //   }
 
+  const handleEdit = async e => {
+    e.preventDefault();
+    // console.log("This was clicked inside of edit");
+    // console.log(cardSelected)
+    const url = baseURL + `/selfies/${cardSelected._id}`;
+    // console.log(url)
 
-  const handleEdit = (e) => {
-    const url = baseURL + `/selfies/${selectedUpload}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(res => res.json())
-      .then(response => {
-       ( id, editedUpload) => {
-        const uploadsArrayCopy = [...uploads];
-        const index = uploadsArrayCopy.findIndex(s => s.id === id);
-        uploadsArrayCopy[index] = editedUpload;
-        handleSelfieEdit(editedUpload)
-    }
-        // setUploads(UploadsArrayCopy);
-        //console.log("Selfie was edited successfully")
-      });
+    // const response = await fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // }).then(response => response.json())
   };
+  //   const handleEdit = e => {
+  // const url = baseURL + `/selfies/${selectedUpload}`;
+  // fetch(url, {
+  //   method: "PUT",
+  //   headers: {
+  // "Content-Type": "application/json",
+  //   },
+  // }).then(res => res.json());
+  //   .then(response => {
+  //    ( id, editedUpload) => {
+  //     const uploadsArrayCopy = [...uploads];
+  //     const index = uploadsArrayCopy.findIndex(s => s.id === id);
+  //     uploadsArrayCopy[index] = editedUpload;
+  //     handleSelfieEdit(editedUpload)
+  // }
+  // setUploads(UploadsArrayCopy);
+  //console.log("Selfie was edited successfully")
+  //   });
+  //   };
 
   //   going to take the id of the selfie we want to change as well as the info from the new selfie info we are goign to replace the old info with
-//   function handleChangeStuff(id, newSelfie) {
-//     const uploadsArrayCopy = [...uploads];
-//     const index = uploadsArrayCopy.findIndex(s => s.id === id);
-//     uploadsArrayCopy[index] = newSelfie;
-//   }
+  //   function handleChangeStuff(id, newSelfie) {
+  //     const uploadsArrayCopy = [...uploads];
+  //     const index = uploadsArrayCopy.findIndex(s => s.id === id);
+  //     uploadsArrayCopy[index] = newSelfie;
+  //   }
 
-//   function handleChange(changes) {
-//     handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
-//   }
+  //   function handleChange(changes) {
+  //     handleChangeStuff(selectedUpload.id, { ...selectedUpload, ...changes });
+  //   }
 
   return (
     <div className="selfie-edit">
       <div className="selfie-edit__remove-button-container">
         <button
           className="btn recipe-edit__remove-button"
-          onClick={() => handleUploadSelected(undefined)}
+          onClick={() => cardSelectedforEdit(undefined)}
         >
-          {" "}
-          &times;{" "}
+          &times;
         </button>
       </div>
       <form className="EditSelfieFormBox">
@@ -71,8 +92,7 @@ const EditSelfie = ({ uploads, selectedUpload, handleUploadSelected, handleSelfi
           id="title"
           type="text"
           autoComplete="off"
-          value={selectedUpload.title}
-          onInput={e => handleChange({ title: e.target.value })}
+          value={cardSelected.title}
         />
 
         <label className="AddSelfieLabel" htmlFor="image">
@@ -83,9 +103,7 @@ const EditSelfie = ({ uploads, selectedUpload, handleUploadSelected, handleSelfi
           id="image"
           type="text"
           autoComplete="off"
-          value={selectedUpload.image}
-          onInput={e => handleChange({ image: e.target.value })}
-          //   onChange={e => setImage(e.target.value)}
+          value={cardSelected.image}
         />
 
         <label className="AddSelfieLabel" htmlFor="year">
@@ -96,9 +114,7 @@ const EditSelfie = ({ uploads, selectedUpload, handleUploadSelected, handleSelfi
           id="year"
           type="text"
           autoComplete="off"
-          value={selectedUpload.year}
-          onInput={e => handleChange({ image: e.target.value })}
-          //   onChange={e => setYear(e.target.value)}
+          value={cardSelected.year}
         />
 
         <label className="AddSelfieLabel" htmlFor="medium">
@@ -109,12 +125,10 @@ const EditSelfie = ({ uploads, selectedUpload, handleUploadSelected, handleSelfi
           id="medium"
           type="text"
           autoComplete="off"
-          value={selectedUpload.medium}
-          onInput={e => handleChange({ image: e.target.value })}
-          //   onChange={e => setMedium(e.target.value)}
+          value={cardSelected.medium}
         />
 
-        <button>
+        <button onClick={handleEdit}>
           <EditIcon></EditIcon>Submit Edit
         </button>
       </form>

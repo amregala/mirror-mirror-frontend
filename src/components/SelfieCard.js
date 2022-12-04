@@ -4,7 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { Link } from "react-router-dom";
 
-const SelfieCard = ({ upload, handleDelete, handleUploadSelected }) => {
+const SelfieCard = ({ upload, handleDelete, cardSelectedforEdit, handleChange }) => {
   return (
     <>
       <div className="SelfieCardsWrapper">
@@ -19,9 +19,10 @@ const SelfieCard = ({ upload, handleDelete, handleUploadSelected }) => {
           </div>
 
           <div className="ButtonDiv">
-            <button onClick={() => handleUploadSelected(upload._id)}>
+            <button onClick={() => cardSelectedforEdit(upload._id)}>
               <EditIcon className="EditBtn"></EditIcon>Edit
             </button>
+
             <button onClick={() => handleDelete(upload._id)}>
               <HighlightOffIcon></HighlightOffIcon>Delete
             </button>

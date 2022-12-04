@@ -26,10 +26,10 @@ const Profile = () => {
   const [error, setError] = useState(null);
   const [selectedUploadId, setSelectedUploadId] = useState();
   // Going through all the uploads (all selfies uploaded) find the upload with the same id as the selecteduploaded connected to button click event
-  const selectedUpload = uploads.find(
+  const cardSelected = uploads.find(
     upload => upload._id === selectedUploadId
   );
-  console.log("This was the selectedUpload:", selectedUpload);
+  console.log("This was the selectedUpload:", cardSelected);
 
   useEffect(() => {
     getUploads();
@@ -60,32 +60,20 @@ const Profile = () => {
   }
 
   // ==== EDIT SELFIE ====//
-  function handleUploadSelected(id) {
+  function cardSelectedforEdit(id) {
     setSelectedUploadId(id);
-    // console.log("this was clicked within the selfie card comp")
+    // console.log("this was clicked within the selfie card component")
   }
 
-  function handleSelfieEdit(uploadsArrayCopy) {
-    setUploads(uploadsArrayCopy)
-  }
-
-  // const handleSelfieEdit = (id, newSelf) => {
+  // function handleChange(e) {
   //   e.preventDefault();
+  //   console.log("Clicked to submit changes")
+  // this worked 
+  // }
 
-  //   const url = baseURL + `/selfies/${id}`;
-  //   fetch(url, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then(response => {
-  //     const newSelfies = [...uploads];
-  //     const index = newSelfies.findIndex(selfie => selfie.id === id);
-  //     newSelfies[index] = newSelf;
-  //     setUploads(newSelfies);
-  //     //console.log("Selfie was edited successfully")
-  //   });
-  // };
+  // function handleSelfieEdit(uploadsArrayCopy) {
+  //   setUploads(uploadsArrayCopy)
+  // }
 
   // ==== DELETE SELFIE ====//
   const handleDelete = id => {
@@ -114,14 +102,18 @@ const Profile = () => {
           <SelfieGrid
             uploads={uploads}
             handleDelete={handleDelete}
-            handleUploadSelected={handleUploadSelected}
+            cardSelectedforEdit={cardSelectedforEdit}
+            // handleChange={handleChange}
           />
+
         </Line>
-        {selectedUpload && (
+        {cardSelected && (
           <EditSelfie
             uploads={uploads}
-            selectedUpload={selectedUpload}
-            handleUploadSelected={handleUploadSelected}
+            cardSelected={cardSelected}
+            cardSelectedforEdit={cardSelectedforEdit}
+            // handleChange={handleChange}
+            
           />
         )}
       </BodyProfileWrapper>

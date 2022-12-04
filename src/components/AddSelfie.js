@@ -23,14 +23,14 @@ const AddSelfie = ({ handleAddNew }) => {
     const newSelfieAdd = { title, year, medium, image };
     // console.log (newSelfie)
     const url = baseURL + "/selfies";
-    fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newSelfieAdd),
     })
-      .then(res => res.json())
+      .then(response => response.json())
       .then(newSelfie => handleAddNew(newSelfie));
     setTitle("");
     setYear("");
